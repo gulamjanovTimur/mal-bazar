@@ -1,8 +1,6 @@
 import { store } from 'quasar/wrappers'
 import { createStore } from 'vuex'
 
-// import example from './module-example'
-
 /*
  * If not building with SSR mode, you can
  * directly export the Store instantiation;
@@ -11,11 +9,12 @@ import { createStore } from 'vuex'
  * async/await or return a Promise which resolves
  * with the Store instance.
  */
+import products from './products'
 
 export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
-      // example
+      products
     },
 
     // enable strict mode (adds overhead!)
