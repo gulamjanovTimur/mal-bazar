@@ -34,25 +34,25 @@ export default function () {
       {
         id: 6,
         title: 'Продаю: корова, телёнок | для разведения',
-        img: 'product-img.jpg',
+        img: 'tiger-2.jpg',
         amount: 120000,
       },
       {
         id: 7,
         title: 'Продаю: корова, телёнок | для разведения',
-        img: 'product-img.jpg',
+        img: 'cat.jpg',
         amount: 120000,
       },
       {
         id: 8,
         title: 'Продаю: корова, телёнок | для разведения',
-        img: 'product-img.jpg',
+        img: 'tiger.jpg',
         amount: 120000,
       },
       {
         id: 9,
         title: 'Продаю: корова, телёнок | для разведения',
-        img: 'product-img.jpg',
+        img: 'asd.jpg',
         amount: 120000,
       },
     ]

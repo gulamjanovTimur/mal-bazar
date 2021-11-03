@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpR fFf">
+  <q-layout class="main-layout" view="hHh lpR fff">
     <q-header>
       <div class="container">
         <Header/>
@@ -8,18 +8,24 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-        
+    <q-footer class="main-layout__footer">
+      <div class="container">
+        <Footer/>
+      </div>
+    </q-footer>
   </q-layout>
 </template>
 
 <script>
 
 import Header from 'components/Header'
+import Footer from 'components/footer'
 
 export default {
   name: 'MainLayout',
   components: {
-    Header
+    Header,
+    Footer
   },
   data() {
     return {

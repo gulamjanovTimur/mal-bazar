@@ -1,7 +1,6 @@
 <template>
   <div class="product-card">
-    <div class="product-card__img">
-      <img :src="`images/${data.img}`"/>
+    <div class="product-card__img" :style="`background-image:url(images/${data.img})`">
     </div>
     <div class="product-card__title">{{data.title}}</div>
     <div class="product-card-bottom">

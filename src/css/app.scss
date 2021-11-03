@@ -2,11 +2,15 @@
 @import 'global';
 
 // LAYOUTS
+@import 'layouts/MainLayout';
 
 // PAGES
+@import 'pages/Main';
 
 // COMPONENTS
 @import 'components/Header';
 @import 'components/Search';
 @import 'components/ProductCard';
 @import 'components/Products';
+@import 'components/Footer';
+@import 'components/RegistrationForm';

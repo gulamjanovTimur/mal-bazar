@@ -2,7 +2,7 @@
   <div class="main">
     <SearchPanel/>
     <div class="container">
-      <h1 class="page-title">Новые объявления</h1>
+      <h1 class="page__title">Новые объявления</h1>
       <Products :data="products"/>
     </div>
   </div>
