@@ -1,0 +1,18 @@
+.registration-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 40px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  &__title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  &__field {
+    margin-bottom: 30px;
+  }
+  &__btn {
+    width: 100%;
+  }
+}
