@@ -26,15 +26,8 @@ export default route(function (/* { store, ssrContext } */) {
     history: createHistory(process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE)
   })
   Router.beforeEach((to, from, next) => {
-    console.log(to)
-    if(to.path === '/') {
-      document.title = `${process.env.PRODUCT_NAME}`
-    } else {
-      if(to.params.pageTitle) {
-        document.title = ` ${to.params.pageTitle} | ${process.env.PRODUCT_NAME}`
-      } else {
-        document.title = process.env.PRODUCT_NAME
-      }
+    if(to.name) {
+      document.title = `${to.name} | ${process.env.PRODUCT_NAME}`
     }
     next()
   })
