@@ -37,7 +37,7 @@
       outlined
     >
     </q-input>
-    <q-btn type="submit" class="registration-form__btn" color="primary">Зарегистрироваться</q-btn>
+    <q-btn size="17px" type="submit" class="registration-form__btn" color="primary">Зарегистрироваться</q-btn>
   </form>
 </template>
 <script>

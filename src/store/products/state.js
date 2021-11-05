@@ -27,7 +27,7 @@ export default function () {
       },
       {
         id: 5,
-        title: 'Ишен ишак',
+        title: 'Ишен ишек',
         img: 'product-img.jpg',
         amount: 120000,
       },

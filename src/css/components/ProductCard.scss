@@ -18,7 +18,7 @@
     }
   }
   &__title {
-    padding: 0 20px;
+    padding: 10px 20px 0;
   }
   &__amount {
     font-weight: bold;
@@ -28,5 +28,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  column-gap: 10px;
+  @include padding;
 }

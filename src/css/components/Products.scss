@@ -5,3 +5,16 @@
   row-gap: 30px;
   flex-wrap: wrap;
 }
+
+@include tablet {
+  .products {
+    padding: 0 14px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@include mob {
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
