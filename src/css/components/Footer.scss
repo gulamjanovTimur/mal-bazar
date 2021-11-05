@@ -27,3 +27,20 @@
     font-size: 16px;
   }
 }
+@include hd {
+  .footer {
+    padding: 0 14px;
+  }
+}
+
+@include mob {
+  .footer-logo {
+    width: 50%;
+  }
+  .footer-app {
+    width: 50%;
+    &__text {
+      font-size: 13px;
+    }
+  }
+}

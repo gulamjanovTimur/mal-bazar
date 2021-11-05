@@ -1,7 +1,7 @@
 .registration-form {
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+  @include padding;
   margin-top: 40px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   &__title {
@@ -14,5 +14,15 @@
   }
   &__btn {
     width: 100%;
+  }
+}
+@include mob {
+  .registration-form {
+    &__title {
+      margin-bottom: 10px;
+    }
+    &__field {
+      margin-bottom: 20px;
+    }
   }
 }

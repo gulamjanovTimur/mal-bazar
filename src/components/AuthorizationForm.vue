@@ -27,7 +27,7 @@
         />
       </template>
     </q-input>
-    <q-btn type="submit" class="registration-form__btn" color="primary">Войти</q-btn>
+    <q-btn size="17px" type="submit" class="registration-form__btn" color="primary">Войти</q-btn>
   </form>
 </template>
 <script>

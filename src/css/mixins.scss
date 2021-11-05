@@ -1,0 +1,45 @@
+@import "quasar.variables.scss";
+
+@mixin tablet {
+  @media (max-width: $breakpoint-sm) { //up to 1023px
+    @content;
+  }
+}
+
+@mixin mob { 
+  @media (max-width: $breakpoint-xs) { //up to 599px
+    @content;
+  }
+}
+
+@mixin hd {
+  @media (max-width: $breakpoint-md) { //up to 1023px
+    @content;
+  }
+}
+
+@mixin hd-only {
+  @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) { //range from 1023px to 1439px 
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @include mob {
+    display: none !important;
+  }
+}
+
+@mixin mobile-only($value: block) {
+  display: none !important;
+  @include mob {
+    display: $value !important;
+  }
+}
+
+@mixin padding() {
+  padding: 20px;
+  @include mob {
+    padding: 14px;
+  }
+}
