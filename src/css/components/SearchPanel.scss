@@ -22,3 +22,13 @@
     color: $primary;
   }
 }
+@include hd {
+  .search {
+    padding: 20px 14px;
+  }
+}
+@include mob {
+  .search-button {
+    padding: 0 5px 0 10px;
+  }
+}

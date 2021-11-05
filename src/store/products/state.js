@@ -3,9 +3,9 @@ export default function () {
     data: [
       {
         id: 1,
-        title: 'Продаю: корова, телёнок | для разведения',
+        title: 'ДЛИННЫЙ ТАЙТЛ ДЛИННЫЙ ТАЙТЛ ДЛИННЫЙ ТАЙТЛ ДЛИННЫЙ ТАЙТЛ ДЛИННЫЙ ТАЙТЛ ДЛИННЫЙ ТАЙТЛ ',
         img: 'product-img.jpg',
-        amount: 120000,
+        amount: 1234567,
       },
       {
         id: 2,
@@ -21,14 +21,14 @@ export default function () {
       },
       {
         id: 4,
-        title: 'Элдос котокбаш',
+        title: 'Элдос клитролицый',
         img: 'product-img.jpg',
         amount: 120000,
       },
       {
         id: 5,
         title: 'Ишен ишек',
-        img: 'product-img.jpg',
+        img: 'baba.jpg',
         amount: 120000,
       },
       {
@@ -39,7 +39,7 @@ export default function () {
       },
       {
         id: 7,
-        title: 'Продаю: корова, телёнок | для разведения',
+        title: 'Тимур айтишник',
         img: 'cat.jpg',
         amount: 120000,
       },

@@ -1,7 +1,7 @@
 <template>
   <div class="registration">
     <div class="container">
-      <AuthorizationForm/>
+      <AuthorizationForm class="registration__form"/>
     </div>
   </div>
 </template>

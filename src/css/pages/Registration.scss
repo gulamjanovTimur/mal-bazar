@@ -1,0 +1,21 @@
+.registration {
+  &__form {
+    margin: 40px auto 0;
+  }
+}
+
+@include tablet {
+  .registration {
+    &__form {
+      margin: 20px auto;
+    }
+  }
+}
+
+@include mob {
+  .registration {
+    &__form {
+      margin: 0 auto;
+    }
+  }
+}
