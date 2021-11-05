@@ -19,7 +19,7 @@
 
 <script>
 // import vClickOutside from 'v-click-outside'
-// import { lockBody } from 'src/utils'
+import { lockBody } from 'src/utils'
 
 export default {
   name: 'Modal',
@@ -40,14 +40,11 @@ export default {
       this.$emit('close')
     }
   },
-  // watch: {
-  //   'value'() {
-  //     lockBody(this.value)
-  //   }
-  // }
-  mounted() {
-    // console.log(this.value)
-  }
+  watch: {
+    'modelValue'() {
+      lockBody(this.modelValue)
+    }
+  },
 }
 
 </script>

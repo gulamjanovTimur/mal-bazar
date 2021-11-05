@@ -11,8 +11,8 @@
     </div>
     <div class="header-right">
       <div class="header-auth header-right__auth">
-        <router-link to="/authorization" class="header-auth__item">Войти</router-link>
-        <router-link to="/registration" class="header-auth__item">Регистрация</router-link>
+        <router-link to="/authorization" active-class="route_active" class="header-auth__item">Войти</router-link>
+        <router-link to="/registration" active-class="route_active" class="header-auth__item">Регистрация</router-link>
       </div>
       <q-btn color="secondary" class="header-right__create" label="Подать объявление"/>
       <q-icon class="header-right__mobile" @click="() => modalOpen = true" size="38px" name="menu"></q-icon>

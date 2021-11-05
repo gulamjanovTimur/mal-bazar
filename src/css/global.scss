@@ -24,4 +24,16 @@ a {
 .page__title {
   text-align: center;
   font-size: 34px;
+  margin: 0;
+}
+.lock-body {
+  overflow-y: hidden;
+}
+.route_active {
+  color: $secondary;
+}
+@include mob {
+  .page__title {
+    font-size: 26px;
+  }
 }
