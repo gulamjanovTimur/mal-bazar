@@ -1,3 +1,5 @@
+import { Notify } from "quasar"
+
 export const getLocalTime = (date) => new Date(date || Date.now()).toLocaleString('ru-RU', { timezone: 'Asia/Bishkek' })
 
 export const lockBody = (status) => {
@@ -17,3 +19,10 @@ export const divideAmount = (num) => {
     return 0
   }
 }
+export const showNotification = (type = "positive", msg = "") => {
+  Notify.create({
+    type,
+    message: msg,
+    position: "top-right",
+  });
+};

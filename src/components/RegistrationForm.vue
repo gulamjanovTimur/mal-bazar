@@ -1,14 +1,15 @@
 <template>
-  <form @submit.prevent="() => registration()" class="registration-form">
+  <form @submit.prevent="() => handleRegistration()" class="registration-form">
     <div class="registration-form__title">Регистрация</div>
     <q-input
       ref="phone"
-      :rules="[ val => !!val || 'Обязательное поле', val => val.length === 14 || 'Номер телефона должен состоять из 10 цифр']"
+      :rules="phoneRules"
       mask="#(###)##-##-##"
       v-model="phone"
       class="registration-form__field"
       label="Введите номер телефона"
       outlined
+      @update:model-value="() => initPhoneRules()"
     />
     <q-input
       ref="password"
@@ -41,6 +42,9 @@
   </form>
 </template>
 <script>
+import { showNotification } from 'src/utils'
+import { mapActions } from 'vuex'
+
 export default {
   name: 'RegistrationForm',
   data() {
@@ -48,16 +52,48 @@ export default {
       phone: '',
       password: '',
       rePassword: '',
-      isPwd: true
+      isPwd: true,
+      error: false,
+      phoneRules: [
+        val => !!val || 'Обязательное поле',
+        val => val.length === 14 || 'Номер телефона должен состоять из 10 цифр'
+      ]
     }
   },
   methods: {
-    registration() {
+    ...mapActions([
+      'registration'
+    ]),
+    initPhoneRules() {
+      if(this.error) {
+        this.error = false
+        this.phoneRules = [
+          val => !!val || 'Обязательное поле',
+          val => val.length === 14 || 'Номер телефона должен состоять из 10 цифр'
+        ]
+      }
+    },
+    handleRegistration() {
       this.$refs.phone.validate()
       this.$refs.password.validate()
       this.$refs.rePassword.validate()
       if (!this.$refs.phone.hasError && !this.$refs.password.hasError && !this.$refs.rePassword.hasError) {
-        console.log('РЕГИСТРАЦИЯ')
+        this.registration({phone_number: this.phone, password: this.password}).then((res) => {
+          if(res.success) {
+            console.log('STEP 2(OTP)')
+          }else{
+            this.error = true
+            this.phoneRules = [
+              val => !!val || 'Обязательное поле',
+              val => val.length === 14 || 'Номер телефона должен состоять из 10 цифр',
+              val => val >= 0 || res.error.data.ru
+            ]
+            setTimeout(() => {
+              this.$refs.phone.validate()
+              this.$refs.phone.focus()
+            }, 0);
+          }
+        })
       }
     }
   }
