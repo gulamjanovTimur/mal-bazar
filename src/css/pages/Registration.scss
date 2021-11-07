@@ -2,11 +2,17 @@
   &__form {
     margin: 40px auto 0;
   }
+  &__otp {
+    margin: 40px auto 0;
+  }
 }
 
 @include tablet {
   .registration {
     &__form {
+      margin: 20px auto;
+    }
+    &__otp {
       margin: 20px auto;
     }
   }
@@ -15,6 +21,9 @@
 @include mob {
   .registration {
     &__form {
+      margin: 0 auto;
+    }
+    &__otp {
       margin: 0 auto;
     }
   }

@@ -38,15 +38,19 @@
       outlined
     >
     </q-input>
-    <q-btn size="17px" type="submit" class="registration-form__btn" color="primary">Зарегистрироваться</q-btn>
+    <CustomBtn class="registration-form__btn" name="ЗАРЕГИСТРИРОВАТЬСЯ"/>
   </form>
 </template>
 <script>
-import { showNotification } from 'src/utils'
 import { mapActions } from 'vuex'
+import CustomBtn from 'components/CustomBtn'
 
 export default {
   name: 'RegistrationForm',
+  components: {
+    CustomBtn
+  },
+  props: ['step'],
   data() {
     return {
       phone: '',
@@ -74,13 +78,14 @@ export default {
       }
     },
     handleRegistration() {
+      this.$emit('update:step', 2)
       this.$refs.phone.validate()
       this.$refs.password.validate()
       this.$refs.rePassword.validate()
       if (!this.$refs.phone.hasError && !this.$refs.password.hasError && !this.$refs.rePassword.hasError) {
         this.registration({phone_number: this.phone, password: this.password}).then((res) => {
           if(res.success) {
-            console.log('STEP 2(OTP)')
+            this.$emit('update:step', 2)
           }else{
             this.error = true
             this.phoneRules = [

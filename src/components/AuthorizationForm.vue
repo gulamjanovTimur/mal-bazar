@@ -27,12 +27,17 @@
         />
       </template>
     </q-input>
-    <q-btn size="17px" type="submit" class="registration-form__btn" color="primary">Войти</q-btn>
+    <CustomBtn class="registration-form__btn" name="ВОЙТИ"/>
   </form>
 </template>
 <script>
+import CustomBtn from 'components/CustomBtn'
+
 export default {
   name: 'AuthorizationForm',
+  components: {
+    CustomBtn
+  },
   data() {
     return {
       phone: '',
