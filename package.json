@@ -13,6 +13,7 @@
     "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
+    "@quasar/app": "^3.1.10",
     "@quasar/extras": "^1.0.0",
     "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.6.5",
@@ -24,7 +25,6 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
-    "@quasar/app": "^3.0.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^7.0.0",
