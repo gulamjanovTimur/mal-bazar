@@ -6,7 +6,7 @@
       <div class="product-card__title">{{data.title}}</div>
       <div class="product-card__bottom product-card-bottom">
         <div class="product-card-bottom__amount">{{divideAmount(data.amount)}} KGS</div>
-        <q-btn @click="() => openProductCard(data.id)" color="secondary" class="product-card-bottom__btn">Подробнее</q-btn>
+        <CustomBtn class="product-card-bottom__btn" secondary @click="() => openProductCard(data.id)" name="ПОДРОБНЕЕ"/>
       </div>
     </div>
   </div>
@@ -14,10 +14,14 @@
 
 <script>
 import { divideAmount } from 'src/utils'
+import CustomBtn from 'components/CustomBtn'
 
 export default {
   name: 'ProductCard',
   props: ['data'],
+  components: {
+    CustomBtn
+  },
   methods: {
     divideAmount,
     openProductCard(id) {

@@ -3,32 +3,32 @@ export default function () {
     data: [
       {
         id: 1,
-        title: 'ДЛИННЫЙ ТАЙТЛ ДЛИННЫЙ ТАЙТЛ ДЛИННЫЙ ТАЙТЛ ДЛИННЫЙ ТАЙТЛ ДЛИННЫЙ ТАЙТЛ ДЛИННЫЙ ТАЙТЛ ',
+        title: 'Продаю: корова, телёнок | для разведения',
         img: 'product-img.jpg',
         amount: 1234567,
       },
       {
         id: 2,
-        title: 'Продаю: котокток',
+        title: 'Продаю быка на забив',
         img: 'product-img.jpg',
         amount: 120000,
       },
       {
         id: 3,
-        title: 'Бекбол бокбол',
+        title: 'Продаю корову 3 года',
         img: 'product-img.jpg',
         amount: 120000,
       },
       {
         id: 4,
-        title: 'Элдос клитролицый',
+        title: 'Продаю корову, 5 лет, 20л',
         img: 'product-img.jpg',
         amount: 120000,
       },
       {
         id: 5,
-        title: 'Ишен ишек',
-        img: 'baba.jpg',
+        title: 'Продаю: корова, телёнок | для разведения',
+        img: 'product-img.jpg',
         amount: 120000,
       },
       {
@@ -39,7 +39,7 @@ export default function () {
       },
       {
         id: 7,
-        title: 'Тимур айтишник',
+        title: 'Продаю: корова, телёнок | для разведения',
         img: 'cat.jpg',
         amount: 120000,
       },

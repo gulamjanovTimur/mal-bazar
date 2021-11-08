@@ -78,7 +78,6 @@ export default {
       }
     },
     handleRegistration() {
-      this.$emit('update:step', 2)
       this.$refs.phone.validate()
       this.$refs.password.validate()
       this.$refs.rePassword.validate()

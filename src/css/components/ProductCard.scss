@@ -1,4 +1,5 @@
 .product-card {
+  border-radius: 5px;
   background-color: white;
   box-sizing: border-box;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -43,6 +44,10 @@
   &__amount {
     font-weight: bold;
   }
+  &__btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
 }
 
 @include tablet {
@@ -62,7 +67,8 @@
     flex-direction: column;
     &__btn {
       width: 100%;
-      height: 20px;
+      padding: 5px 0;
+      margin-top: 5px;
     }
   }
 }
@@ -80,6 +86,9 @@
   .product-card-bottom {
     &__amount {
       font-size: 17px;
+    }
+    &__btn {
+      font-size: 13px;
     }
   }
 }

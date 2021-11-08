@@ -2,6 +2,7 @@
 
 // app global css in SCSS form
 @import 'global';
+@import 'components/CustomBtn';
 
 // LAYOUTS
 @import 'layouts/MainLayout';
@@ -18,4 +19,3 @@
 @import 'components/Footer';
 @import 'components/RegistrationForm';
 @import 'components/Modal';
-@import 'components/CustomBtn';
