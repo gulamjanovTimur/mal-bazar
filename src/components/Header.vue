@@ -17,7 +17,7 @@
       <q-btn color="secondary" class="header-right__create" label="Подать объявление"/>
       <q-icon class="header-right__mobile" @click="() => modalOpen = true" size="38px" name="menu"></q-icon>
     </div>
-    <Modal :headerTitle="'Меню'" v-model="modalOpen">
+    <Modal headerTitle="Меню" v-model="modalOpen">
       <div class="header-mobile">
         <router-link @click="() => modalOpen = false" class="header-mobile__item" to="/authorization">Войти</router-link>
         <router-link @click="() => modalOpen = false" class="header-mobile__item" to="/registration">Регистрация</router-link>

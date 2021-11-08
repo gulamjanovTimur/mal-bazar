@@ -1,6 +1,6 @@
 import { showNotification } from "src/utils"
 
-const api = ' https://a584-95-87-87-71.ngrok.io/api/'
+const api = 'https://malbazar.herokuapp.com/api/'
 
 
 const errorHandler = () => {
@@ -12,15 +12,6 @@ const responseHandler = async res => {
   return response
 }
 
-export const genQuery = params => {
-  console.log("Params", params)
-  return (
-    "?" +
-    Object.keys(params)
-      .map(k => encodeURIComponent(k) + "=" + encodeURIComponent(params[k]))
-      .join("&")
-  );
-};
 
 export const headers = {
   "content-type": "application/json",

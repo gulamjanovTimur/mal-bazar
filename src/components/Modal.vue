@@ -1,20 +1,21 @@
 <template>
-  <div v-if="modelValue" class="modal">
-    <div class="modal__main">
-      <div class="modal__header modal-header">
-        <slot name="header">
-          <div class="modal-header__title">{{ headerTitle }}</div>
-          <div class="modal-header__exit" @click="() => close()">
-            <q-icon color="black" name="close" size="40px"/>
-          </div>
-        </slot>
-      </div>
-      <div class="modal__content">
-        <slot></slot>
+  <transition appear name="slide">
+    <div v-if="modelValue" class="modal">
+      <div class="modal__main">
+        <div class="modal__header modal-header">
+          <slot name="header">
+            <div class="modal-header__title">{{ headerTitle }}</div>
+            <div class="modal-header__exit" @click="() => close()">
+              <q-icon color="black" name="close" size="40px"/>
+            </div>
+          </slot>
+        </div>
+        <div class="modal__content">
+          <slot></slot>
+        </div>
       </div>
     </div>
-  </div>
-
+  </transition>
 </template>
 
 <script>
