@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header-left">
       <router-link to="/" class="header-logo header-right__logo">
-        <img src="icons/logo.png" alt="logo">
+        <img src="static/icons/logo.png" alt="logo">
       </router-link>
       <div class="header-lang header-right__lang">
         <div @click="() => changeLang('KG')" :class="{'header-lang__item_active':selectedLang === 'KG'}" class="header-lang__item">КЫРГ</div>
