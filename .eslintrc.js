@@ -44,7 +44,7 @@ module.exports = {
 
   globals: {
     ga: 'readonly', // Google Analytics
-    cordova: 'readonly',
+    cordova: 'true',
     __statics: 'readonly',
     __QUASAR_SSR__: 'readonly',
     __QUASAR_SSR_SERVER__: 'readonly',
