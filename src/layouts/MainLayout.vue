@@ -1,6 +1,6 @@
 <template>
   <q-layout class="main-layout" view="hHh lpR fff">
-    <q-header>
+    <q-header class="main-layout__header">
       <div class="container">
         <Header/>
       </div>
@@ -8,7 +8,7 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-    <q-footer class="main-layout__footer">
+    <q-footer elevated class="main-layout__footer">
       <div class="container">
         <Footer/>
       </div>
@@ -35,6 +35,5 @@ export default {
   mounted() {
     console.log(this.$q.platform)
   }
-
 }
 </script>

@@ -13,7 +13,7 @@
     />
     <q-input
       ref="password"
-      :rules="[val => !!val || 'Обязательное поле', val => val.length >= 8 || 'Пароль должен состоять минимум из 8 символов']"
+      :rules="[val => !!val || $t('VAL_REQUIRED'), val => val.length >= 8 || 'Пароль должен состоять минимум из 8 символов']"
       v-model="password"
       :type="isPwd ? 'password' : 'text'"
       class="registration-form__field"
@@ -30,7 +30,7 @@
     </q-input>
     <q-input
       ref="rePassword"
-      :rules="[val => !!val || 'Обязательное поле', val => val === password || 'Пароли не совпадают']"
+      :rules="[val => !!val || $t('VAL_REQUIRED'), val => val === password || $t('VAL_PASSWORD_REPEAT')]"
       v-model="rePassword"
       :type="isPwd ? 'password' : 'text'"
       class="registration-form__field"
@@ -59,8 +59,8 @@ export default {
       isPwd: true,
       error: false,
       phoneRules: [
-        val => !!val || 'Обязательное поле',
-        val => val.length === 14 || 'Номер телефона должен состоять из 10 цифр'
+        val => !!val || this.$t('VAL_REQUIRED'),
+        val => val.length === 14 || this.$t('VAL_PHONE')
       ]
     }
   },
@@ -72,8 +72,8 @@ export default {
       if(this.error) {
         this.error = false
         this.phoneRules = [
-          val => !!val || 'Обязательное поле',
-          val => val.length === 14 || 'Номер телефона должен состоять из 10 цифр'
+          val => !!val || this.$t('VAL_REQUIRED'),
+          val => val.length === 14 || this.$t('VAL_PHONE')
         ]
       }
     },
@@ -88,9 +88,9 @@ export default {
           }else{
             this.error = true
             this.phoneRules = [
-              val => !!val || 'Обязательное поле',
-              val => val.length === 14 || 'Номер телефона должен состоять из 10 цифр',
-              val => val >= 0 || res.error.data.ru
+              val => !!val || this.$t('VAL_REQUIRED'),
+              val => val.length === 14 || this.$t('VAL_PHONE'),
+              val => val >= 0 || res.error.data[this.$locale]
             ]
             setTimeout(() => {
               this.$refs.phone.validate()

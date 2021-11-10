@@ -1,5 +1,7 @@
-import enUS from './en-US'
+import ruRU from './ru-ru'
+import kgKG from './kg-kg'
 
 export default {
-  'en-US': enUS
+  ru: ruRU,
+  kg: kgKG
 }

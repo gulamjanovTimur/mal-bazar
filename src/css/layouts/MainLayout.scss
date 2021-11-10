@@ -1,7 +1,17 @@
 .main-layout {
-  // background-color: #ebedf0;
+  &__header {
+    
+  }
   &__footer {
     z-index: 100;
     padding: 15px 0;
+  }
+}
+
+@include mob {
+  .main-layout {
+    &__footer {
+      padding: 0;
+    }
   }
 }

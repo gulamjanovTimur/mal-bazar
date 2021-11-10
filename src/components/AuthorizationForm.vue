@@ -1,9 +1,9 @@
 <template>
   <form @submit.prevent="() => authorization()" class="registration-form">
-    <div class="registration-form__title">Вход</div>
+    <div class="registration-form__title">{{$t('ENTRY')}}</div>
     <q-input
       ref="phone"
-      :rules="[ val => !!val || 'Обязательное поле', val => val.length === 14 || 'Номер телефона должен состоять из 10 цифр']"
+      :rules="[ val => !!val || $t('VAL_REQUIRED'), val => val.length === 14 || $t('VAL_PHONE')]"
       mask="#(###)##-##-##"
       v-model="phone"
       class="registration-form__field"
@@ -12,7 +12,7 @@
     />
     <q-input
       ref="password"
-      :rules="[val => !!val || 'Обязательное поле']"
+      :rules="[val => !!val || $t('VAL_REQUIRED')]"
       v-model="password"
       :type="isPwd ? 'password' : 'text'"
       class="registration-form__field"
