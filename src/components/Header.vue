@@ -5,8 +5,8 @@
         <img src="static/icons/logo.png" alt="logo">
       </router-link>
       <div class="header-lang header-right__lang">
-        <div @click="() => changeLang('KG')" :class="{'header-lang__item_active':selectedLang === 'KG'}" class="header-lang__item">КЫРГ</div>
-        <div @click="() => changeLang('RU')" :class="{'header-lang__item_active':selectedLang === 'RU'}" class="header-lang__item">РУС</div>
+        <div @click="() => changeLang('ru')" :class="{'header-lang__item_active':selectedLang === 'ru'}" class="header-lang__item">РУС</div>
+        <div @click="() => changeLang('kg')" :class="{'header-lang__item_active':selectedLang === 'kg'}" class="header-lang__item">КЫРГ</div>
       </div>
     </div>
     <div class="header-right">
@@ -33,13 +33,23 @@ export default {
   components: { Modal },
   data() {
     return {
-      selectedLang: 'RU', //KG or RU
+      selectedLang: 'ru', //KG or RU
       modalOpen: false
     }
   },
   methods: {
     changeLang(newLang){ 
       this.selectedLang = newLang
+      localStorage.setItem('lang', newLang)
+      this.$i18n.locale = newLang
+    }
+  },
+  mounted() {
+    if(!localStorage.getItem('lang')) {
+      localStorage.setItem('lang', 'ru')
+    } else {
+      this.$i18n.locale = localStorage.getItem('lang')
+      this.selectedLang = this.$i18n.locale
     }
   }
 }
