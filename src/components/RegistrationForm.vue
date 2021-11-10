@@ -1,23 +1,24 @@
 <template>
   <form @submit.prevent="() => handleRegistration()" class="registration-form">
-    <div class="registration-form__title">Регистрация</div>
+    <div class="registration-form__title">{{$t('SIGN_UP')}}</div>
     <q-input
       ref="phone"
       :rules="phoneRules"
       mask="#(###)##-##-##"
       v-model="phone"
       class="registration-form__field"
-      label="Введите номер телефона"
+      :label="$t('ENTER_PHONE_NUMBER')"
       outlined
+      unmasked-value
       @update:model-value="() => initPhoneRules()"
     />
     <q-input
       ref="password"
-      :rules="[val => !!val || $t('VAL_REQUIRED'), val => val.length >= 8 || 'Пароль должен состоять минимум из 8 символов']"
+      :rules="[val => !!val || $t('VAL_REQUIRED'), val => val.length >= 8 || $t('VAL_PHONE')]"
       v-model="password"
       :type="isPwd ? 'password' : 'text'"
       class="registration-form__field"
-      label="Введите пароль"
+      :label="$t('ENTER_PASSWORD')"
       outlined
     >
       <template v-slot:append>
@@ -34,11 +35,11 @@
       v-model="rePassword"
       :type="isPwd ? 'password' : 'text'"
       class="registration-form__field"
-      label="Повторите пароль"
+      :label="$t('REPEAT_PASSWORD')"
       outlined
     >
     </q-input>
-    <CustomBtn class="registration-form__btn" name="ЗАРЕГИСТРИРОВАТЬСЯ"/>
+    <CustomBtn class="registration-form__btn" :name="$t('SIGN_UP')"/>
   </form>
 </template>
 <script>
@@ -60,7 +61,7 @@ export default {
       error: false,
       phoneRules: [
         val => !!val || this.$t('VAL_REQUIRED'),
-        val => val.length === 14 || this.$t('VAL_PHONE')
+        val => val.length === 10 || this.$t('VAL_PHONE')
       ]
     }
   },
@@ -73,7 +74,7 @@ export default {
         this.error = false
         this.phoneRules = [
           val => !!val || this.$t('VAL_REQUIRED'),
-          val => val.length === 14 || this.$t('VAL_PHONE')
+          val => val.length === 10 || this.$t('VAL_PHONE')
         ]
       }
     },
@@ -82,14 +83,14 @@ export default {
       this.$refs.password.validate()
       this.$refs.rePassword.validate()
       if (!this.$refs.phone.hasError && !this.$refs.password.hasError && !this.$refs.rePassword.hasError) {
-        this.registration({phone_number: this.phone, password: this.password}).then((res) => {
+        this.registration({phoneNumber: this.phone, password: this.password}).then((res) => {
           if(res.success) {
             this.$emit('update:step', 2)
           }else{
             this.error = true
             this.phoneRules = [
               val => !!val || this.$t('VAL_REQUIRED'),
-              val => val.length === 14 || this.$t('VAL_PHONE'),
+              val => val.length === 10 || this.$t('VAL_PHONE'),
               val => val >= 0 || res.error.data[this.$locale]
             ]
             setTimeout(() => {

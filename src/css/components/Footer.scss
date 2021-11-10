@@ -28,31 +28,6 @@
   }
 }
 
-.footer-mobile {
-  display: none;
-  &__item {
-    width: 25%;
-    padding: 5px;
-  }
-}
-.footer-mobile-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-right: 1px solid #fff;
-  &__text {
-    font-size: 12px;
-  }
-  &__icon {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    img {
-      width: 30px;
-    }
-  }
-}
 
 @include hd {
   .footer {
@@ -61,10 +36,51 @@
 }
 
 @include mob {
-  .footer {
-    display: none;
+  .footer-logo {
+    width: 50%;
   }
-  .footer-mobile {
-    display: flex;
+  .footer-app {
+    width: 50%;
+    &__text {
+      font-size: 13px;
+    }
   }
 }
+
+
+
+//BOTTOM NAVIGATION CORDOVA
+// .footer-mobile {
+//   display: none;
+//   &__item {
+//     width: 25%;
+//     padding: 5px;
+//   }
+// }
+// .footer-mobile-item {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+//   border-right: 1px solid #fff;
+//   &__text {
+//     font-size: 12px;
+//   }
+//   &__icon {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     img {
+//       width: 30px;
+//     }
+//   }
+// }
+
+// @include mob {
+  // .footer {
+  //   display: none;
+  // }
+  // .footer-mobile {
+  //   display: flex;
+  // }
+// }

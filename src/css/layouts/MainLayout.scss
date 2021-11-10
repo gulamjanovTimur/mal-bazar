@@ -8,10 +8,12 @@
   }
 }
 
-@include mob {
-  .main-layout {
-    &__footer {
-      padding: 0;
-    }
-  }
-}
+
+//BOTTOM NAVIGATION CORDOVA
+// @include mob { 
+//   .main-layout {
+//     &__footer {
+//       padding: 0;
+//     }
+//   }
+// }

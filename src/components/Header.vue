@@ -11,10 +11,10 @@
     </div>
     <div class="header-right">
       <div class="header-auth header-right__auth">
-        <router-link to="/authorization" active-class="route_active" class="header-auth__item">Войти</router-link>
-        <router-link to="/registration" active-class="route_active" class="header-auth__item">Регистрация</router-link>
+        <router-link to="/authorization" active-class="route_active" class="header-auth__item">{{$t('ENTRY')}}</router-link>
+        <router-link to="/registration" active-class="route_active" class="header-auth__item">{{$t('SIGN_UP')}}</router-link>
       </div>
-      <q-btn color="secondary" class="header-right__create" label="Подать объявление"/>
+      <q-btn color="secondary" class="header-right__create" :label="$t('CREATE_ARTICLE')"/>
       <q-icon class="header-right__mobile" @click="() => modalOpen = true" size="38px" name="menu"></q-icon>
     </div>
     <Modal headerTitle="Меню" v-model="modalOpen">

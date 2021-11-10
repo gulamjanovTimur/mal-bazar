@@ -1,6 +1,6 @@
 <template>
   <q-layout class="main-layout" view="hHh lpR fff">
-    <q-header class="main-layout__header">
+    <q-header elevated class="main-layout__header">
       <div class="container">
         <Header/>
       </div>

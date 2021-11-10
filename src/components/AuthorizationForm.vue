@@ -3,11 +3,12 @@
     <div class="registration-form__title">{{$t('ENTRY')}}</div>
     <q-input
       ref="phone"
-      :rules="[ val => !!val || $t('VAL_REQUIRED'), val => val.length === 14 || $t('VAL_PHONE')]"
+      :rules="[ val => !!val || $t('VAL_REQUIRED'), val => val.length === 10 || $t('VAL_PHONE')]"
       mask="#(###)##-##-##"
+      unmasked-value
       v-model="phone"
       class="registration-form__field"
-      label="Введите номер телефона"
+      :label="$t('ENTER_PHONE_NUMBER')"
       outlined
     />
     <q-input
@@ -16,7 +17,7 @@
       v-model="password"
       :type="isPwd ? 'password' : 'text'"
       class="registration-form__field"
-      label="Введите пароль"
+      :label="$t('ENTER_PASSWORD')"
       outlined
     >
       <template v-slot:append>
@@ -27,7 +28,7 @@
         />
       </template>
     </q-input>
-    <CustomBtn class="registration-form__btn" name="ВОЙТИ"/>
+    <CustomBtn class="registration-form__btn" :name="$t('ENTRY')"/>
   </form>
 </template>
 <script>
