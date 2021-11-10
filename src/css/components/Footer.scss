@@ -27,6 +27,32 @@
     font-size: 16px;
   }
 }
+
+.footer-mobile {
+  &__item {
+    width: 25%;
+    padding: 5px;
+  }
+}
+.footer-mobile-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-right: 1px solid #fff;
+  &__text {
+    font-size: 12px;
+  }
+  &__icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    img {
+      width: 30px;
+    }
+  }
+}
+
 @include hd {
   .footer {
     padding: 0 14px;
@@ -34,13 +60,22 @@
 }
 
 @include mob {
-  .footer-logo {
-    width: 50%;
+  .footer {
+    display: none;
   }
-  .footer-app {
-    width: 50%;
-    &__text {
-      font-size: 13px;
-    }
+  .footer-mobile {
+    display: flex;
   }
 }
+
+// @include mob {
+//   .footer-logo {
+//     width: 50%; TODO:deprecated if cordova footer === browser android footer
+//   }
+//   .footer-app {
+//     width: 50%;
+//     &__text {
+//       font-size: 13px;
+//     }
+//   }
+// }

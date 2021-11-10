@@ -12,9 +12,43 @@
       <div class="footer-app__text">Бесплатное приложение<br>для твоего телефона</div>
     </div>
   </div>
+  <div class="footer-mobile">
+    <router-link :to="el.path" :key="index" v-for="(el, index) in mobileItems" class="footer-mobile__item footer-mobile-item">
+      <div class="footer-mobile-item__text">{{el.text}}</div>
+      <div class="footer-mobile-item__icon">
+        <img :src="`static/icons/${el.icon}`" alt="Лого">
+      </div>
+    </router-link>
+  </div>
 </template>
 <script>
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  data() {
+    return {
+      mobileItems: [
+        {
+          text: 'Главная',
+          icon: 'logo.png',
+          path: '/'
+        },
+        {
+          text: 'Главная',
+          icon: 'logo.png',
+          path: '/'
+        },
+        {
+          text: 'Главная',
+          icon: 'logo.png',
+          path: '/'
+        },
+        {
+          text: 'Главная',
+          icon: 'logo.png',
+          path: '/'
+        },
+      ]
+    }
+  }
 }
 </script>
