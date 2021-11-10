@@ -29,6 +29,7 @@
 }
 
 .footer-mobile {
+  display: none;
   &__item {
     width: 25%;
     padding: 5px;
@@ -67,15 +68,3 @@
     display: flex;
   }
 }
-
-// @include mob {
-//   .footer-logo {
-//     width: 50%; TODO:deprecated if cordova footer === browser android footer
-//   }
-//   .footer-app {
-//     width: 50%;
-//     &__text {
-//       font-size: 13px;
-//     }
-//   }
-// }
