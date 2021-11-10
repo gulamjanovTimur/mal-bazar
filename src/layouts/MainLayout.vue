@@ -32,7 +32,9 @@ export default {
 
     }
   },
-
+  mounted() {
+    console.log(this.$q.platform)
+  }
 
 }
 </script>
