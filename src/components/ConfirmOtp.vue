@@ -13,6 +13,8 @@
 
 <script>
 import CustomBtn from 'components/CustomBtn'
+import { mapActions, mapState } from 'vuex'
+import { showNotification } from 'src/utils'
 
 export default {
   name: 'ConfirmOtp',
@@ -24,9 +26,27 @@ export default {
       otp: ''
     }
   },
+  computed: {
+    ...mapState({
+      signUp: state => state.user.signUp
+    })
+  },
   methods: {
+    ...mapActions({
+      sendOtpToServer: 'sendOtpToServer',
+      register: 'signUp'
+    }),
     confirmOtp() {
-      console.log('CONFIRM')
+      this.sendOtpToServer({phoneNumber: this.signUp.phoneNumber, password: this.signUp.password, otp: this.otp}).then((res) => {
+        if(res.success) {
+          this.register({phoneNumber: this.signUp.phoneNumber, password: this.signUp.password}).then(() => {
+            showNotification('positive', 'Регистрация прошла успешно') // TODO: translate
+            this.$router.push({path: '/sign-in'}) //TODO: sign-in auto
+          })
+        } else {
+          showNotification('negative', res.error.data[this.$i18n.locale])
+        }
+      })
     }
   }
 }

@@ -9,6 +9,7 @@
 <script>
 import RegistrationForm from 'components/RegistrationForm'
 import ConfirmOtp from 'src/components/ConfirmOtp.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Registration',
@@ -18,5 +19,15 @@ export default {
       step: 1
     }
   },
+  computed: {
+    ...mapState({
+      auth: state => state.user.auth
+    })
+  },
+  mounted() {
+    if(this.auth.status) {
+      this.$router.push('/')
+    }
+  }
 }
 </script>

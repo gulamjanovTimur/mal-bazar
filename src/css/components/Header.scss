@@ -17,6 +17,15 @@
   &__mobile {
     display: none;
   }
+  &__profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
 }
 .header-logo {
   display: flex;
@@ -71,9 +80,6 @@
 }
 
 @include mob {
-  .header {
-
-  }
   .header-right {
     &__create {
       display: none;
@@ -81,9 +87,9 @@
     &__mobile {
       display: block;
     }
-  }
-  .header-lang {
-    display: none;
+    &__lang {
+      display: none;
+    }
   }
   .header-auth {
     display: none;

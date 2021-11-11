@@ -33,6 +33,8 @@
 </template>
 <script>
 import CustomBtn from 'components/CustomBtn'
+import { mapActions, mapMutations } from 'vuex'
+import { showNotification } from 'src/utils'
 
 export default {
   name: 'AuthorizationForm',
@@ -47,11 +49,24 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'signIn'
+    ]),
+    ...mapMutations(['updateAuth']),
     authorization() {
       this.$refs.phone.validate()
       this.$refs.password.validate()
       if (!this.$refs.phone.hasError && !this.$refs.password.hasError) {
-        console.log('ВХОД')
+        this.signIn({phoneNumber: this.phone, password: this.password}).then((res) => {
+          if(res.success) {
+            showNotification('positive', 'Авторизация прошла успешно') // TODO: translate
+            localStorage.setItem('sessionKey', res.data)
+            this.updateAuth({status: true, sessionKey: res.data})
+            this.$router.push('/')
+          } else {
+            showNotification('negative', res.error.data[this.$i18n.locale])
+          }
+        })
       }
     }
   }

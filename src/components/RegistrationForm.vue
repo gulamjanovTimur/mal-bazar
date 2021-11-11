@@ -3,14 +3,13 @@
     <div class="registration-form__title">{{$t('SIGN_UP')}}</div>
     <q-input
       ref="phone"
-      :rules="phoneRules"
+      :rules="[val => !!val || this.$t('VAL_REQUIRED'), val => val.length === 10 || this.$t('VAL_PHONE')]"
       mask="#(###)##-##-##"
       v-model="phone"
       class="registration-form__field"
       :label="$t('ENTER_PHONE_NUMBER')"
       outlined
       unmasked-value
-      @update:model-value="() => initPhoneRules()"
     />
     <q-input
       ref="password"
@@ -43,8 +42,9 @@
   </form>
 </template>
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 import CustomBtn from 'components/CustomBtn'
+import { showNotification } from 'src/utils'
 
 export default {
   name: 'RegistrationForm',
@@ -54,49 +54,52 @@ export default {
   props: ['step'],
   data() {
     return {
-      phone: '',
-      password: '',
       rePassword: '',
       isPwd: true,
-      error: false,
-      phoneRules: [
-        val => !!val || this.$t('VAL_REQUIRED'),
-        val => val.length === 10 || this.$t('VAL_PHONE')
-      ]
     }
+  },
+  computed: {
+    ...mapState({
+      signUp: state => state.user.signUp
+    }),
+    phone: {
+      get () {
+      return this.signUp.phoneNumber
+      },
+      set (value) {
+        this.updateSignUpPhone(value)
+      }
+    },
+    password: {
+      get () {
+      return this.signUp.password
+      },
+      set (value) {
+        this.updateSignUpPassword(value)
+      }
+    },
   },
   methods: {
     ...mapActions([
-      'registration'
+      'checkNumber',
+      'sendOtpToClient'
     ]),
-    initPhoneRules() {
-      if(this.error) {
-        this.error = false
-        this.phoneRules = [
-          val => !!val || this.$t('VAL_REQUIRED'),
-          val => val.length === 10 || this.$t('VAL_PHONE')
-        ]
-      }
-    },
+    ...mapMutations([
+      'updateSignUpPhone',
+      'updateSignUpPassword',
+    ]),
     handleRegistration() {
       this.$refs.phone.validate()
       this.$refs.password.validate()
       this.$refs.rePassword.validate()
       if (!this.$refs.phone.hasError && !this.$refs.password.hasError && !this.$refs.rePassword.hasError) {
-        this.registration({phoneNumber: this.phone, password: this.password}).then((res) => {
+        this.checkNumber(this.phone).then((res) => {
           if(res.success) {
-            this.$emit('update:step', 2)
-          }else{
-            this.error = true
-            this.phoneRules = [
-              val => !!val || this.$t('VAL_REQUIRED'),
-              val => val.length === 10 || this.$t('VAL_PHONE'),
-              val => val >= 0 || res.error.data[this.$locale]
-            ]
-            setTimeout(() => {
-              this.$refs.phone.validate()
-              this.$refs.phone.focus()
-            }, 0);
+            this.sendOtpToClient(this.phone).then((res) => {
+              this.$emit('update:step', 2)
+            })
+          } else {
+            showNotification('negative', res.error.data[this.$i18n.locale])
           }
         })
       }
@@ -104,3 +107,4 @@ export default {
   }
 }
 </script>
+
