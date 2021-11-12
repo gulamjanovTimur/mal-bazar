@@ -14,7 +14,7 @@
         <router-link to="/sign-in" active-class="route_active" class="header-auth__item">{{$t('ENTRY')}}</router-link>
         <router-link to="/sign-up" active-class="route_active" class="header-auth__item">{{$t('SIGN_UP')}}</router-link>
       </div>
-      <q-btn color="secondary" class="header-right__create" :label="$t('CREATE_ARTICLE')"/>
+      <q-btn @click="() => $router.push('/create')" color="secondary" class="header-right__create" :label="$t('CREATE_ARTICLE')"/>
       <q-icon class="header-right__mobile" @click="() => modalOpen = true" size="38px" name="menu" />
       <template v-if="auth.status">
         <div class="header-right__profile">П</div>
@@ -24,9 +24,9 @@
     </div>
     <Modal headerTitle="Меню" v-model="modalOpen">
       <div class="header-mobile">
-        <router-link @click="() => modalOpen = false" class="header-mobile__item" to="/sign-in">{{$t('ENTRY')}}</router-link>
-        <router-link @click="() => modalOpen = false" class="header-mobile__item" to="/sign-up">{{$t('SIGN_UP')}}</router-link>
-        <router-link @click="() => modalOpen = false" class="header-mobile__item" to="/create">{{$t('CREATE_ARTICLE')}}</router-link>
+        <router-link @click="() => modalOpen = false" active-class="route_active" class="header-mobile__item" to="/sign-in">{{$t('ENTRY')}}</router-link>
+        <router-link @click="() => modalOpen = false" active-class="route_active" class="header-mobile__item" to="/sign-up">{{$t('SIGN_UP')}}</router-link>
+        <router-link @click="() => modalOpen = false" active-class="route_active" class="header-mobile__item" to="/create">{{$t('CREATE_ARTICLE')}}</router-link>
         <div class="header-lang header-mobile__lang">
           <div @click="() => changeLang('ru')" :class="{'header-lang__item_active':selectedLang === 'ru'}" class="header-lang__item">RU</div>
           <div @click="() => changeLang('kg')" :class="{'header-lang__item_active':selectedLang === 'kg'}" class="header-lang__item">KG</div>

@@ -7,7 +7,7 @@
       label="Введите код из смс"
       outlined
     />
-    <CustomBtn class="registration-form__btn" name="ПОДТВЕРДИТЬ"/>
+    <CustomBtn :isLoading="isLoading" class="registration-form__btn" name="ПОДТВЕРДИТЬ"/>
   </form>
 </template>
 
@@ -23,7 +23,8 @@ export default {
   },
   data() {
     return {
-      otp: ''
+      otp: '',
+      isLoading: false
     }
   },
   computed: {
@@ -37,16 +38,18 @@ export default {
       register: 'signUp'
     }),
     confirmOtp() {
+      this.isLoading = true
       this.sendOtpToServer({phoneNumber: this.signUp.phoneNumber, password: this.signUp.password, otp: this.otp}).then((res) => {
         if(res.success) {
+          this.isLoading = true
           this.register({phoneNumber: this.signUp.phoneNumber, password: this.signUp.password}).then(() => {
             showNotification('positive', 'Регистрация прошла успешно') // TODO: translate
             this.$router.push({path: '/sign-in'}) //TODO: sign-in auto
-          })
+          }).finally(() => this.isLoading = false)
         } else {
           showNotification('negative', res.error.data[this.$i18n.locale])
         }
-      })
+      }).finally(() => this.isLoading = false)
     }
   }
 }

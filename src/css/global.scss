@@ -23,15 +23,18 @@ a {
 }
 .page__title {
   text-align: center;
-  font-size: 34px;
+  font-size: 30px;
   margin: 0;
+  line-height: 1;
+  margin: 25px 0;
 }
 .lock-body {
   overflow-y: hidden;
 }
 .route_active {
-  color: $secondary;
+  color: $secondary !important;
 }
+
 // ******** ANIMATIONS START ********
 .slide-enter-active {
   transition: all .3s ease-out;

@@ -8,6 +8,7 @@ const routes = [
       { path: '/sign-in', name: 'Авторизация', component: () => import('src/pages/Authorization.vue') },
       { path: '/sign-up', name: 'Регистрация', component: () => import('src/pages/Registration.vue') },
       { path: '/details', component: () => import('src/pages/ProductDetails.vue') },
+      { path: '/create', name: 'Создание объявления', component: () => import('src/pages/Create.vue') },
     ]
   },
 

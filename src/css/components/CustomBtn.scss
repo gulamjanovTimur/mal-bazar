@@ -26,3 +26,16 @@
     background-color: rgba(242, 177, 56, 0.6);
   }
 }
+
+.custom-btn-loader {
+  animation: loader 2s linear infinite;
+  height: 30px;
+  img {
+    height: 100%;
+  }
+}
+
+@keyframes loader {
+  from {transform: rotate(0deg)}
+  to { transform: rotate(360deg)}
+}

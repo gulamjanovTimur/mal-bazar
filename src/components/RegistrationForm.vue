@@ -38,7 +38,7 @@
       outlined
     >
     </q-input>
-    <CustomBtn class="registration-form__btn" :name="$t('SIGN_UP')"/>
+    <CustomBtn :isLoading="isLoading" class="registration-form__btn" :name="$t('SIGN_UP')"/>
   </form>
 </template>
 <script>
@@ -56,6 +56,7 @@ export default {
     return {
       rePassword: '',
       isPwd: true,
+      isLoading: false
     }
   },
   computed: {
@@ -93,15 +94,18 @@ export default {
       this.$refs.password.validate()
       this.$refs.rePassword.validate()
       if (!this.$refs.phone.hasError && !this.$refs.password.hasError && !this.$refs.rePassword.hasError) {
+        this.isLoading = true
         this.checkNumber(this.phone).then((res) => {
           if(res.success) {
+            this.isLoading = true
             this.sendOtpToClient(this.phone).then((res) => {
               this.$emit('update:step', 2)
-            })
+            }).finally(() => this.loading = false)
           } else {
+            this.isLoading = false
             showNotification('negative', res.error.data[this.$i18n.locale])
           }
-        })
+        }).finally(() => this.loading = false)
       }
     }
   }

@@ -28,7 +28,7 @@
         />
       </template>
     </q-input>
-    <CustomBtn class="registration-form__btn" :name="$t('ENTRY')"/>
+    <CustomBtn :isLoading="isLoading" class="registration-form__btn" :name="$t('ENTRY')"/>
   </form>
 </template>
 <script>
@@ -45,7 +45,8 @@ export default {
     return {
       phone: '',
       password: '',
-      isPwd: true
+      isPwd: true,
+      isLoading: false
     }
   },
   methods: {
@@ -57,16 +58,17 @@ export default {
       this.$refs.phone.validate()
       this.$refs.password.validate()
       if (!this.$refs.phone.hasError && !this.$refs.password.hasError) {
+        this.isLoading = true
         this.signIn({phoneNumber: this.phone, password: this.password}).then((res) => {
           if(res.success) {
             showNotification('positive', 'Авторизация прошла успешно') // TODO: translate
-            localStorage.setItem('sessionKey', res.data)
-            this.updateAuth({status: true, sessionKey: res.data})
+            localStorage.setItem('sessionKey', res.data.sessionKey)
+            this.updateAuth({status: true, sessionKey: res.data.sessionKey})
             this.$router.push('/')
           } else {
             showNotification('negative', res.error.data[this.$i18n.locale])
           }
-        })
+        }).finally(() => this.isLoading = false)
       }
     }
   }
