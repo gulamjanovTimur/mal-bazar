@@ -78,6 +78,18 @@
     transition: 0.15s;
     transform: translateY(20px);
   }
+  &__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    font-size: 16px;
+    color: $primary;
+    &_main {
+      font-size: 20px;
+    }
+  }
 }
 .uploader-cards {
   display: flex;
