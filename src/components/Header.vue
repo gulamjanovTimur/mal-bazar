@@ -14,7 +14,7 @@
         <router-link to="/sign-in" active-class="route_active" class="header-auth__item">{{$t('ENTRY')}}</router-link>
         <router-link to="/sign-up" active-class="route_active" class="header-auth__item">{{$t('SIGN_UP')}}</router-link>
       </div>
-      <q-btn @click="() => $router.push('/create')" color="secondary" class="header-right__create" :label="$t('CREATE_ARTICLE')"/>
+      <CustomBtn @click="() => $router.push('/create')" secondary class="header-right__create" :name="$t('CREATE_ARTICLE')"/>
       <q-icon class="header-right__mobile" @click="() => modalOpen = true" size="38px" name="menu" />
       <template v-if="auth.status">
         <div class="header-right__profile">П</div>

@@ -32,15 +32,11 @@
   </form>
 </template>
 <script>
-import CustomBtn from 'components/CustomBtn'
 import { mapActions, mapMutations } from 'vuex'
 import { showNotification } from 'src/utils'
 
 export default {
   name: 'AuthorizationForm',
-  components: {
-    CustomBtn
-  },
   data() {
     return {
       phone: '',

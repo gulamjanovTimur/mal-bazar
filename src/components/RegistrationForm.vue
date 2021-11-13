@@ -43,14 +43,10 @@
 </template>
 <script>
 import { mapActions, mapMutations, mapState } from 'vuex'
-import CustomBtn from 'components/CustomBtn'
 import { showNotification } from 'src/utils'
 
 export default {
   name: 'RegistrationForm',
-  components: {
-    CustomBtn
-  },
   props: ['step'],
   data() {
     return {

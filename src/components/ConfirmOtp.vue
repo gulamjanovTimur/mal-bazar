@@ -12,15 +12,11 @@
 </template>
 
 <script>
-import CustomBtn from 'components/CustomBtn'
 import { mapActions, mapState } from 'vuex'
 import { showNotification } from 'src/utils'
 
 export default {
   name: 'ConfirmOtp',
-  components: {
-    CustomBtn
-  },
   data() {
     return {
       otp: '',

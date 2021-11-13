@@ -26,3 +26,8 @@ export const showNotification = (type = "positive", msg = "") => {
     position: "top-right",
   });
 };
+export const convertToImgPath = (icon) => {
+  return icon
+    ? `data:image/${icon.extension[0] === '.' ? icon.extension.substring(1) : icon.extension};base64,${icon.data}`
+    : ''
+}

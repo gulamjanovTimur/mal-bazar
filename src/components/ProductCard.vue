@@ -14,14 +14,10 @@
 
 <script>
 import { divideAmount } from 'src/utils'
-import CustomBtn from 'components/CustomBtn'
 
 export default {
   name: 'ProductCard',
   props: ['data'],
-  components: {
-    CustomBtn
-  },
   methods: {
     divideAmount,
     openProductCard(id) {
