@@ -1,6 +1,6 @@
 <template>
   <div @click="() => openProductCard(data.id)" :name="$t('DETAILS')" class="product-card">
-    <div class="product-card__img" :style="`background-image:url(static/images/${data.img[0]})`">
+    <div class="product-card__img" :style="`background-image:url(static/images/${data.images[0]})`">
     </div>
     <div class="product-card__content">
       <div class="product-card__title">{{data.title}}</div>

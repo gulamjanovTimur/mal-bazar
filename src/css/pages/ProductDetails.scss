@@ -1,0 +1,92 @@
+.details {
+  margin: 50px 0;
+  &__main {
+    
+  }
+  &__description {
+    margin-top: 50px;
+  }
+}
+.details-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  &__images {
+    width: 700px;
+  }
+  &__spec {
+
+  }
+}
+.details-images {
+  &__view {
+    height: 400px;
+    border-radius: 5px;
+    width: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgb(236, 236, 236);
+  }
+  &__items {
+  }
+}
+.images-items {
+  display: flex;
+  padding: 10px;
+  overflow-x: auto;
+  gap: 20px;
+  &__item {
+    border-radius: 5px;
+    min-width: 175px;
+    width: 175px;
+    height: 125px;
+    cursor: pointer;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+}
+.details-spec {
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @include padding;
+  &__phone {
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+  }
+}
+.spec-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &__name {
+    color: $primary;
+    font-size: 17px;
+  }
+  &__value {
+    color: #000;
+    font-size: 20px;
+    &_price {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+}
+.details-description {
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  &__text {
+    @include padding;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-size: 18px;
+  }
+}
