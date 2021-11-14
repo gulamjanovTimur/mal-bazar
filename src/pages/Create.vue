@@ -21,7 +21,7 @@
               Загрузить фото...
             </div>
           <div v-if="fileList[1] !== undefined" class="create-uploader__make-main">
-            <q-chip clickable @click="() => makeMain(1)" color="secondary" text-color="white" square>Сделать главной</q-chip>
+            <q-chip clickable @click="() => makeMain(1)" color="secondary" text-color="white">Сделать главной</q-chip>
           </div>
         </label>
         <label 
@@ -35,7 +35,7 @@
               Загрузить фото...
             </div>
           <div v-if="fileList[2] !== undefined" class="create-uploader__make-main">
-            <q-chip clickable @click="() => makeMain(2)" color="secondary" text-color="white" square>Сделать главной</q-chip>
+            <q-chip clickable @click="() => makeMain(2)" color="secondary" text-color="white">Сделать главной</q-chip>
           </div>
         </label>
         <label 
@@ -49,7 +49,7 @@
               Загрузить фото...
             </div>
           <div v-if="fileList[3] !== undefined" class="create-uploader__make-main">
-            <q-chip clickable @click="() => makeMain(3)" color="secondary" text-color="white" square>Сделать главной</q-chip>
+            <q-chip clickable @click="() => makeMain(3)" color="secondary" text-color="white">Сделать главной</q-chip>
           </div>
         </label>
         <label 
@@ -63,7 +63,7 @@
               Загрузить фото...
             </div>
           <div v-if="fileList[4] !== undefined" class="create-uploader__make-main">
-            <q-chip clickable @click="() => makeMain(4)" color="secondary" text-color="white" square>Сделать главной</q-chip>
+            <q-chip clickable @click="() => makeMain(4)" color="secondary" text-color="white">Сделать главной</q-chip>
           </div>
         </label>
         <label 
@@ -77,7 +77,7 @@
               Загрузить фото...
             </div>
           <div v-if="fileList[5] !== undefined" class="create-uploader__make-main">
-            <q-chip clickable @click="() => makeMain(5)" color="secondary" text-color="white" square>Сделать главной</q-chip>
+            <q-chip clickable @click="() => makeMain(5)" color="secondary" text-color="white">Сделать главной</q-chip>
           </div>
         </label>
         <label 
@@ -91,7 +91,7 @@
               Загрузить фото...
             </div>
           <div v-if="fileList[6] !== undefined" class="create-uploader__make-main">
-            <q-chip clickable @click="() => makeMain(6)" color="secondary" text-color="white" square>Сделать главной</q-chip>
+            <q-chip clickable @click="() => makeMain(6)" color="secondary" text-color="white">Сделать главной</q-chip>
           </div>
         </label>
       </div>
@@ -139,7 +139,7 @@
     </div>
     <div class="create__actions create-actions">
       <custom-btn class="create-actions__item" :name="$t('CREATE_ARTICLE')"/>
-      <custom-btn class="create-actions__item" type secondary name="Отмена"/>
+      <custom-btn @click="() => $router.push('/')" class="create-actions__item" type secondary name="Отмена"/>
     </div>
   </form>
 </template>
@@ -223,7 +223,6 @@ export default {
     },
     changeFile(e) {
       let file = e.target.files[0]
-      console.log(file)
       if(file) {
         const ext = file.name.split(".")
         let reader = new FileReader()
