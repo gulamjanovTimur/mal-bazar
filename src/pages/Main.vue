@@ -2,6 +2,7 @@
   <div class="main">
     <SearchPanel/>
     <div class="container">
+      <RegionFilter class="main__region-filter"/>
       <h1 class="page__title">{{$t('NEW_ARTICLE')}}</h1>
       <Products :data="products"/>
     </div>
@@ -12,12 +13,13 @@
 <script>
 import SearchPanel from 'components/SearchPanel'
 import Products from 'components/Products'
+import RegionFilter from 'components/RegionFilter'
 import { mapState } from 'vuex'
 
 
 export default {
   name: 'Main',
-  components: {SearchPanel, Products},
+  components: {SearchPanel, Products, RegionFilter},
   data() {
     return {
       

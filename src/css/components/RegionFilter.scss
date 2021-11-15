@@ -1,0 +1,48 @@
+.region-filter {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.region-filter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+  &__img {
+    width: 100px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    img {
+      width: 100%;
+    }
+  }
+  &__text {
+    white-space: nowrap;
+    &_active {
+      color: $secondary;
+    }
+  }
+}
+@include hd {
+  .region-filter {
+    padding: 0 14px;
+  }
+}
+@include tablet {
+  .region-filter {
+    overflow-x: auto;
+    padding: 0 10px 10px 10px;
+  }
+  .region-filter-item {
+    &__img {
+      width: 80px;
+      height: 40px;
+    }
+    &__text {
+      font-size: 15px;
+    }
+  }
+}

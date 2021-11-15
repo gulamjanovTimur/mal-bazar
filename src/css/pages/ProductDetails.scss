@@ -1,5 +1,5 @@
 .details {
-  margin: 50px 0;
+  margin-bottom: 50px;
   &__main {
     
   }
@@ -11,41 +11,21 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  &__images {
-    width: 700px;
+  &__carousel {
+    width: 750px;
+    height: 500px;
   }
   &__spec {
 
   }
 }
-.details-images {
-  &__view {
-    height: 400px;
-    border-radius: 5px;
-    width: 100%;
+.details-carousel {
+  height: 100%;
+  &__slide {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     background-color: rgb(236, 236, 236);
-  }
-  &__items {
-  }
-}
-.images-items {
-  display: flex;
-  padding: 10px;
-  overflow-x: auto;
-  gap: 20px;
-  &__item {
-    border-radius: 5px;
-    min-width: 175px;
-    width: 175px;
-    height: 125px;
-    cursor: pointer;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 }
 .details-spec {
@@ -88,5 +68,52 @@
     @include padding;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     font-size: 18px;
+  }
+}
+@include hd {
+  .details {
+    padding: 0 14px;
+  }
+}
+@include tablet {
+  .details-main {
+    flex-direction: column;
+    &__carousel {
+      width: 100%;
+      height: 400px;
+    }
+  }
+}
+@include mob {
+  .details-main {
+    &__carousel {
+      height: 250px;
+    }
+  }
+  .details-spec {
+    padding: 0;
+    gap: 0;
+    &__btn {
+      margin: 5px;
+    }
+  }
+  .spec-field {
+    // align-items: flex-start;
+    border-bottom: 1px solid #ccc;
+    padding: 14px;
+    &__name {
+      font-size: 15px;
+    }
+    &__value {
+      font-size: 17px;
+      &_price {
+        font-size: 20px;
+      }
+    }
+  }
+  .details-description {
+    &__title {
+      text-align: center;
+    }
   }
 }

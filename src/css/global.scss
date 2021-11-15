@@ -9,6 +9,22 @@ $negative  : #C10015;
 $info      : #31CCEC;
 $warning   : #F2C037;
 
+// ******** QUASAR GLOBAL STYLES START ********
+
+.q-field--filled.q-field--readonly .q-field__control:before {
+  border-bottom: none;
+}
+@include mob {
+  .q-carousel__control.q-carousel__arrow {
+    display: none;
+  }
+  .q-carousel__control.q-carousel__navigation {
+    display: none;
+  }
+}
+
+// ******** QUASAR GLOBAL STYLES FINISH ********
+
 body {
   font-size: 20px;
 }

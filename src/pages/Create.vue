@@ -175,8 +175,8 @@ export default {
           ],
           model: ''
         },
-        breed: {
-          label: 'Порода',
+        region: {
+          label: 'Область',
           type: 'select',
           selectOptions: [
             'Коровы',
@@ -202,6 +202,11 @@ export default {
           type: 'input',
           model: ''
         },
+        breed: {
+          label: 'Порода',
+          type: 'input',
+          model: ''
+        },
         age: {
           label: 'Возраст',
           type: 'input',
@@ -209,10 +214,10 @@ export default {
         },
       },
       ccyOptions: [
-        {label: 'KGS', value: 'kgs'},
-        {label: 'USD', value: 'usd'},
+        {label: 'KGS', value: 'KGS'},
+        {label: 'USD', value: 'USD'},
       ],
-      ccy: 'kgs',
+      ccy: 'KGS',
       fileList: []
     }
   },
