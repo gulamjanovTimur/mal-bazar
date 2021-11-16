@@ -42,16 +42,8 @@
             <span class="spec-field__value spec-field__value_price">{{divideAmount(data.amount) + ' ' + data.ccy}}</span>
           </div>
           <div class="details-spec__field spec-field">
-            <span class="spec-field__name">Вид:</span>
-            <span class="spec-field__value">{{data.type}}</span>
-          </div>
-          <div class="details-spec__field spec-field">
-            <span class="spec-field__name">Порода:</span>
-            <span class="spec-field__value">{{data.breed}}</span>
-          </div>
-          <div class="details-spec__field spec-field">
-            <span class="spec-field__name">Возраст:</span>
-            <span class="spec-field__value">{{data.age}}</span>
+            <span class="spec-field__name">Количество:</span>
+            <span class="spec-field__value">{{data.quantity}}</span>
           </div>
           <div class="details-spec__field spec-field">
             <span class="spec-field__name">Область</span>
@@ -61,11 +53,8 @@
             <span class="spec-field__name">Город:</span>
             <span class="spec-field__value">{{data.city}}</span>
           </div>
-          <div class="details-spec__field spec-field">
-            <span class="spec-field__name">Количество:</span>
-            <span class="spec-field__value">{{data.quantity}}</span>
-          </div>
-          <q-input readonly mask="#(###)##-##-##" filled input-class="details-spec__phone" v-model="data.phone"></q-input>
+          
+          <q-input input readonly mask="#(###)##-##-##" filled input-class="details-spec__phone" v-model="data.phone"></q-input>
           <CustomBtn class="details-spec__btn" name="Написать"/>
         </div>
       </div>

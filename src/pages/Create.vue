@@ -164,17 +164,6 @@ export default {
           ],
           model: ''
         },
-        type: {
-          label: 'Вид',
-          type: 'select',
-          selectOptions: [
-            'Коровы',
-            'Овцы',
-            'Собаки',
-            'Кошки'
-          ],
-          model: ''
-        },
         region: {
           label: 'Область',
           type: 'select',
@@ -199,16 +188,6 @@ export default {
         },
         quantity: {
           label: 'Количество',
-          type: 'input',
-          model: ''
-        },
-        breed: {
-          label: 'Порода',
-          type: 'input',
-          model: ''
-        },
-        age: {
-          label: 'Возраст',
           type: 'input',
           model: ''
         },

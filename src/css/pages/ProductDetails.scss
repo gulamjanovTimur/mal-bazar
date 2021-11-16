@@ -1,10 +1,16 @@
 .details {
-  margin-bottom: 50px;
+  &__title {
+    text-align: left;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 50px;
+  }
   &__main {
     
   }
   &__description {
     margin-top: 50px;
+    margin-bottom: 50px;
   }
 }
 .details-main {
@@ -76,6 +82,11 @@
   }
 }
 @include tablet {
+  .details {
+    &__title {
+      margin-top: 40px;
+    }
+  }
   .details-main {
     flex-direction: column;
     &__carousel {
@@ -83,8 +94,20 @@
       height: 400px;
     }
   }
+  .spec-field {
+    &__value {
+      &_price {
+        font-size: 20px;
+      }
+    }
+  }
 }
 @include mob {
+  .details {
+    &__title {
+      margin-top: 20px;
+    }
+  }
   .details-main {
     &__carousel {
       height: 250px;
@@ -94,11 +117,13 @@
     padding: 0;
     gap: 0;
     &__btn {
-      margin: 5px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
   }
   .spec-field {
-    // align-items: flex-start;
     border-bottom: 1px solid #ccc;
     padding: 14px;
     &__name {
