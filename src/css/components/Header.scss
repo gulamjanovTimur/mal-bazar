@@ -17,14 +17,21 @@
   &__mobile {
     display: none;
   }
-  &__profile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $secondary;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
+}
+.header-profile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  background-color: $primary;
+  &:hover {
+    background-color: $primary-hov;
+  }
+  &__icon {
+    transition: 0.3s;
+    &_active {
+      transform: rotate(180deg);
+    }
   }
 }
 .header-logo {

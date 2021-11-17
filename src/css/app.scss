@@ -12,6 +12,7 @@
 @import 'pages/Registration';
 @import 'pages/Create';
 @import 'pages/ProductDetails';
+@import 'pages/Office';
 
 // COMPONENTS
 @import 'components/Header';
@@ -21,3 +22,6 @@
 @import 'components/Footer';
 @import 'components/RegistrationForm';
 @import 'components/Modal';
+@import 'components/OfficeUser';
+@import 'components/OfficePosts';
+@import 'components/OfficeChats';

@@ -11,19 +11,28 @@
   box-shadow: 0 1px 5px rgb(0 0 0 / 20%), 0 2px 2px rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%);
   
   &:hover {
-    background-color: rgba(136,177,75, 0.8);
+    background-color: $primary-hov;
   }
   &:active {
-    background-color: rgba(136,177,75, 0.6);
+    background-color: $primary-act;
   }
 }
 .custom-btn_secondary {
-  background-color: rgb(242, 177, 56);
+  background-color: $secondary;
   &:hover {
-    background-color: rgba(242, 177, 56, 0.8);
+    background-color: $secondary-hov;
   }
   &:active {
-    background-color: rgba(242, 177, 56, 0.6);
+    background-color: $secondary-act;
+  }
+}
+.custom-btn_negative {
+  background-color: $negative;
+  &:hover {
+    background-color: $negative-hov;
+  }
+  &:active {
+    background-color: $negative-act;
   }
 }
 

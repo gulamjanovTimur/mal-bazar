@@ -1,0 +1,41 @@
+.office-user {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  padding: 15px 25px;
+  &__info {
+    margin-bottom: 20px;
+  }
+  &__fields {
+    margin-bottom: 20px;
+  }
+}
+.office-user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.office-user-text {
+  &__name {
+    // font-size: 20px;
+    font-weight: bold;
+  }
+  &__help {
+    color: #595959;
+    font-size: 15px;
+  }
+}
+.office-user-fields {
+  display: flex;
+  gap: 40px;
+  &__item {
+    width: 33%;
+  }
+}
+
+
+
+
+
+
+
+

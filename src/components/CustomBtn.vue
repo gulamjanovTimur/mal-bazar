@@ -1,5 +1,5 @@
 <template>
-  <button :type="type ? 'button' : 'submit'" :disabled="isLoading" class="custom-btn" :class="{'custom-btn_secondary': secondary}">
+  <button :type="type ? 'button' : 'submit'" :disabled="isLoading" class="custom-btn" :class="{'custom-btn_secondary': secondary, 'custom-btn_negative': negative}">
     <template v-if="!isLoading">{{name}}</template>
     <div v-else class="custom-btn-loader">
       <img src="static/icons/logo.png" alt="logo-loader">
@@ -15,6 +15,10 @@ export default {
       default: 'ПОДТВЕРДИТЬ'
     },
     secondary: {
+      type: Boolean,
+      default: false
+    },
+    negative: {
       type: Boolean,
       default: false
     },

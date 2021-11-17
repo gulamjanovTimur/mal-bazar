@@ -9,6 +9,13 @@ const routes = [
       { path: '/sign-up', name: 'Регистрация', component: () => import('src/pages/Registration.vue') },
       { path: '/details', component: () => import('src/pages/ProductDetails.vue') },
       { path: '/create', name: 'Создание объявления', component: () => import('src/pages/Create.vue') },
+      { path: '/office', component: () => import('src/pages/Office.vue'),
+        children: [
+          { path: '', name: 'Пользователь | Личный кабинет', component: () => import('src/components/OfficeUser.vue')},
+          { path: 'posts', name: 'Мои объявления | Личный кабинет', component: () => import('src/components/OfficePosts.vue')},
+          { path: 'chats', name: 'Список чатов | Личный кабинет', component: () => import('src/components/OfficeChats.vue')},
+        ]
+      },
     ]
   },
 

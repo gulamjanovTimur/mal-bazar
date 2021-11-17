@@ -1,0 +1,49 @@
+.office-posts {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+}
+.office-posts-filters {
+  display: flex;
+  gap: 40px;
+  padding: 15px 25px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  &__item {
+    cursor: pointer;
+    padding: 10px;
+    &_active {
+      background-color: $primary;
+      color: #fff;
+      border-radius: 10px;
+    }
+  }
+}
+.office-post-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 20px;
+  gap: 20px;
+  cursor: pointer;
+  &__img {
+    height: 130px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+.office-item {
+  &__small {
+    color: #595959;
+    font-size: 13px;
+  }
+}
+.office-post-title {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.office-post-views {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

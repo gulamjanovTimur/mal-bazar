@@ -1,26 +1,48 @@
 <template>
   <div class="header">
     <div class="header-left">
-      <router-link to="/" class="header-logo header-right__logo">
+      <router-link to="/" class="header-right__logo header-logo">
         <img src="static/icons/logo.png" alt="logo">
       </router-link>
-      <div class="header-lang header-right__lang">
+      <div class="header-right__lang header-lang">
         <div @click="() => changeLang('ru')" :class="{'header-lang__item_active':selectedLang === 'ru'}" class="header-lang__item">RU</div>
         <div @click="() => changeLang('kg')" :class="{'header-lang__item_active':selectedLang === 'kg'}" class="header-lang__item">KG</div>
       </div>
     </div>
     <div class="header-right">
-      <div v-if="!auth.status" class="header-auth header-right__auth">
+      <div v-if="!auth.status" class="header-right__auth header-auth">
         <router-link to="/sign-in" active-class="route_active" class="header-auth__item">{{$t('ENTRY')}}</router-link>
         <router-link to="/sign-up" active-class="route_active" class="header-auth__item">{{$t('SIGN_UP')}}</router-link>
       </div>
-      <CustomBtn @click="() => $router.push('/create')" secondary class="header-right__create" :name="$t('CREATE_ARTICLE')"/>
       <q-icon class="header-right__mobile" @click="() => modalOpen = true" size="38px" name="menu" />
-      <template v-if="auth.status">
-        <div class="header-right__profile">П</div>
-        <q-icon class="cursor-pointer" @click="() => logOut()" color="secondary" size="40px" name="logout"/>
-      </template>
-      
+      <div class="header-right__profile header-profile" v-if="auth.status">
+        <span class="header-profile__name">Алмазбеков Ишен</span>
+        <q-avatar class="header-profile__avatar" color="secondary">
+          <img src="static/images/ishen-soset.jpg" alt="Фото профиля">
+        </q-avatar>
+        <q-menu ref="menu" @update:model-value="(val) => menuToggle = val">
+          <q-list class="header-profile__list header-profile-list" style="min-width: 100px">
+            <q-item exact to="/office" class="header-profile-list__item" clickable v-close-popup>
+              <q-item-section>Личный кабинет</q-item-section>
+            </q-item>
+            <q-item exact to="/office/chats" class="header-profile-list__item" clickable v-close-popup>
+              <q-item-section>Сообщения</q-item-section>
+            </q-item>
+            <q-separator />
+            <q-item class="header-profile-list__item" clickable v-close-popup>
+              <q-item-section>
+                <CustomBtn @click="() => $router.push('/create')" secondary class="header-right__create" :name="$t('CREATE_ARTICLE')"/>
+              </q-item-section>
+            </q-item>
+            <q-item class="header-profile-list__item" clickable v-close-popup>
+              <q-item-section @click="() => logOut()">Выход</q-item-section>
+            </q-item>
+          </q-list>
+        </q-menu>
+        <div :class="{'header-profile__icon_active': menuToggle}" class="header-profile__icon">
+          <q-icon class="header-profile__icon" size="md" name="expand_more"/>
+        </div>
+      </div>
     </div>
     <Modal headerTitle="Меню" v-model="modalOpen">
       <div class="header-mobile">
@@ -45,7 +67,8 @@ export default {
   data() {
     return {
       selectedLang: 'ru',
-      modalOpen: false
+      modalOpen: false,
+      menuToggle: false
     }
   },
   computed: {
@@ -64,7 +87,7 @@ export default {
       showNotification('positive', 'Вы успешно вышли из системы')
       localStorage.removeItem('sessionKey')
       this.updateAuth({status: false, sessionKey: ''})
-    }
+    },
   },
   mounted() {
     if(!localStorage.getItem('lang')) {
