@@ -1,6 +1,6 @@
 <template>
-  <div class="office-chats">
-    <div class="office-chats__item chat-item">
+  <div v-if="!details" class="office-chats">
+    <div @click="() => openDetails()" class="office-chats__item chat-item">
       <div class="chat-item__left">
         <q-avatar size="55px" color="secondary">
           <img src="static/images/ishen-soset.jpg" alt="Фото профиля">
@@ -16,9 +16,22 @@
       </div>
     </div>
   </div>
+  <ChatDetails v-model:details="details" v-else />
 </template>
 <script>
+import ChatDetails from './ChatDetails.vue'
 export default {
+  components: { ChatDetails },
   name: 'OfficeChats',
+  data() {
+    return {
+      details: false,
+    }
+  },
+  methods: {
+    openDetails() {
+      this.details = true
+    }
+  }
 }
 </script>
