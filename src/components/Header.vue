@@ -11,16 +11,16 @@
     </div>
     <div class="header-right">
       <div v-if="!auth.status" class="header-right__auth header-auth">
-        <router-link to="/sign-in" active-class="route_active" class="header-auth__item">{{$t('ENTRY')}}</router-link>
-        <router-link to="/sign-up" active-class="route_active" class="header-auth__item">{{$t('SIGN_UP')}}</router-link>
+        <router-link to="/sign-in" class="header-auth__item">{{$t('ENTRY')}}</router-link>
+        <router-link to="/sign-up" class="header-auth__item">{{$t('SIGN_UP')}}</router-link>
       </div>
-      <q-icon class="header-right__mobile" @click="() => modalOpen = true" size="38px" name="menu" />
+      <q-icon v-if="!auth.status" class="header-right__mobile" @click="() => modalOpen = true" size="38px" name="menu" />
       <div class="header-right__profile header-profile" v-if="auth.status">
-        <span class="header-profile__name">Алмазбеков Ишен</span>
+        <span class="header-profile__name">Ишен</span>
         <q-avatar class="header-profile__avatar" color="secondary">
           <img src="static/images/ishen-soset.jpg" alt="Фото профиля">
         </q-avatar>
-        <q-menu ref="menu" @update:model-value="(val) => menuToggle = val">
+        <q-menu fit ref="menu" @update:model-value="(val) => menuToggle = val">
           <q-list class="header-profile__list header-profile-list" style="min-width: 100px">
             <q-item exact to="/office" class="header-profile-list__item" clickable v-close-popup>
               <q-item-section>Личный кабинет</q-item-section>
@@ -30,8 +30,9 @@
             </q-item>
             <q-separator />
             <q-item class="header-profile-list__item" clickable v-close-popup>
-              <q-item-section>
-                <CustomBtn @click="() => $router.push('/create')" secondary class="header-right__create" :name="$t('CREATE_ARTICLE')"/>
+              <q-item-section class="header-right__create" @click="() => $router.push('/create')">
+                {{$t('CREATE_ARTICLE')}}
+                <!-- <CustomBtn secondary class="header-right__create" :name="$t('CREATE_ARTICLE')"/> -->
               </q-item-section>
             </q-item>
             <q-item class="header-profile-list__item" clickable v-close-popup>
@@ -46,9 +47,9 @@
     </div>
     <Modal headerTitle="Меню" v-model="modalOpen">
       <div class="header-mobile">
-        <router-link @click="() => modalOpen = false" active-class="route_active" class="header-mobile__item" to="/sign-in">{{$t('ENTRY')}}</router-link>
-        <router-link @click="() => modalOpen = false" active-class="route_active" class="header-mobile__item" to="/sign-up">{{$t('SIGN_UP')}}</router-link>
-        <router-link @click="() => modalOpen = false" active-class="route_active" class="header-mobile__item" to="/create">{{$t('CREATE_ARTICLE')}}</router-link>
+        <router-link @click="() => modalOpen = false" class="header-mobile__item" to="/sign-in">{{$t('ENTRY')}}</router-link>
+        <router-link @click="() => modalOpen = false" class="header-mobile__item" to="/sign-up">{{$t('SIGN_UP')}}</router-link>
+        <!-- <router-link @click="() => modalOpen = false" class="header-mobile__item" to="/create">{{$t('CREATE_ARTICLE')}}</router-link> -->
         <div class="header-lang header-mobile__lang">
           <div @click="() => changeLang('ru')" :class="{'header-lang__item_active':selectedLang === 'ru'}" class="header-lang__item">RU</div>
           <div @click="() => changeLang('kg')" :class="{'header-lang__item_active':selectedLang === 'kg'}" class="header-lang__item">KG</div>
@@ -58,12 +59,10 @@
   </div>
 </template>
 <script>
-import Modal from 'components/Modal'
 import { mapState, mapMutations } from 'vuex'
 import { showNotification } from 'src/utils'
 export default {
   name: 'Header',
-  components: { Modal },
   data() {
     return {
       selectedLang: 'ru',

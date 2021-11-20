@@ -13,7 +13,7 @@
       <q-input v-model="userName" label="Имя" filled class="office-user-fields__item" />
       <q-input v-model="fullName" label="Фамилия" filled class="office-user-fields__item" />
     </div>
-    <CustomBtn name="Сохранить"/>
+    <CustomBtn class="office-user__btn" name="Сохранить"/>
   </div>
 </template>
 <script>

@@ -34,6 +34,11 @@
     }
   }
 }
+.header-profile-list {
+  &__item {
+    white-space: nowrap;
+  } 
+}
 .header-logo {
   display: flex;
   width: 50px;
@@ -64,7 +69,7 @@
   display: flex;
   flex-direction: column;
   &__item {
-    color: black;
+    color: black; 
     transition: 0.3;
     &:hover {
       color: $secondary;
@@ -93,9 +98,6 @@
 
 @include mob {
   .header-right {
-    &__create {
-      display: none;
-    }
     &__mobile {
       display: block;
     }

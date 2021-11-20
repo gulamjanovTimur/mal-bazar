@@ -1,18 +1,54 @@
 .office {
   display: flex;
-  gap: 100px;
+  padding: 50px 0;
   &__nav {
-    margin-top: 50px;
   }
   &__main {
     flex-grow: 1;
-    margin-top: 50px;
+    margin-left: 350px;
   }
 }
 .office-nav {
-  height: 100%;
+  position: fixed;
   border-radius: 5px;
   &__item {
     padding: 15px 60px;
+  }
+}
+@include hd {
+  .office {
+    padding: 14px;
+  }
+}
+
+@include tablet {
+  .office {
+    flex-direction: column;
+    &__main {
+      margin-top: 20px;
+      margin-left: 0;
+    }
+  }
+  .office-nav {
+    display: flex;
+    position: relative;
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+    border: none;
+    padding-bottom: 10px;
+    &__item {
+      padding: 0 15px;
+      text-align: center;
+      flex-grow: 1;
+    }
+  }
+}
+@include mob {
+  .office-nav {
+    &__item {
+      padding: 0 10px;
+      font-size: 15px;
+    }
   }
 }

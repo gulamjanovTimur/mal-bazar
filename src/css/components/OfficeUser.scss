@@ -26,12 +26,30 @@
 }
 .office-user-fields {
   display: flex;
-  gap: 40px;
   &__item {
+    margin-right: 40px;
     width: 33%;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
 
+@include mob {
+  .office-user {
+    border: none;
+    padding: 0;
+    &__btn {
+      width: 100%;
+    }
+  }
+  .office-user-fields {
+    &__item {
+      width: 50%;
+      margin-right: 10px;
+    }
+  }
+}
 
 
 

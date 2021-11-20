@@ -4,7 +4,7 @@
       <router-link to="/" class="footer-logo__img">
         <img src="static/icons/logo.png" alt="Лого">
       </router-link>
-      <router-link to="/" class="footer-logo__link">Mal.kg</router-link>
+      <router-link active-class="" to="/" class="footer-logo__link">Mal.kg</router-link>
       <div class="footer-logo__rights">{{$t('RIGHTS')}}</div>
     </div>
     <div class="footer__app footer-app">
