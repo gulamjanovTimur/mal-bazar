@@ -1,7 +1,7 @@
 <template>
   <div class="office-user">
     <div class="office-user__info office-user-info">
-      <q-avatar class="cursor-pointer" size="80px" color="secondary">
+      <q-avatar class="office-user-info__avatar" size="80px" color="secondary">
         <img src="static/images/ishen-soset.jpg" alt="Фото профиля">
       </q-avatar>
       <div class="office-user-info__text office-user-text">

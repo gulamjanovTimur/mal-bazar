@@ -1,6 +1,12 @@
 .search {
   background-color: #F7EDFA;
   padding: 35px 0;
+  &__text {
+    margin-right: 10px;
+    &_focus {
+      color: $primary;
+    }
+  }
 }
 .search-button {
   display: flex;
@@ -9,17 +15,11 @@
   height: 100%;
   padding: 0 5px 0 20px;
   font-size: 18px;
-  gap: 10px;
   border-left: 1px solid rgba(0, 0, 0, 0.24);
   cursor: pointer;
   transition: border-color 0.36s cubic-bezier(0.4, 0, 0.2, 1);
   &_focus {
     border-left: 2px solid $primary;
-  }
-}
-.search__text {
-  &_focus {
-    color: $primary;
   }
 }
 @include hd {

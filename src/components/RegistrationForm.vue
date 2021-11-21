@@ -3,18 +3,18 @@
     <div class="registration-form__title">{{$t('SIGN_UP')}}</div>
     <q-input
       ref="phone"
+      v-model="phone"
       :rules="[val => !!val || this.$t('VAL_REQUIRED'), val => val.length === 10 || this.$t('VAL_PHONE')]"
       mask="#(###)##-##-##"
-      v-model="phone"
       class="registration-form__field"
       :label="$t('ENTER_PHONE_NUMBER')"
       outlined
       unmasked-value
     />
     <q-input
+      v-model="passwordModel"
       ref="password"
       :rules="[val => !!val || $t('VAL_REQUIRED'), val => val.length >= 8 || $t('VAL_PHONE')]"
-      v-model="password"
       :type="isPwd ? 'password' : 'text'"
       class="registration-form__field"
       :label="$t('ENTER_PASSWORD')"
@@ -42,12 +42,12 @@
   </form>
 </template>
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex'
+import { mapActions } from 'vuex'
 import { showNotification } from 'src/utils'
 
 export default {
   name: 'RegistrationForm',
-  props: ['step'],
+  props: ['step', 'password', 'phoneNumber'],
   data() {
     return {
       rePassword: '',
@@ -56,34 +56,26 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      signUp: state => state.user.signUp
-    }),
     phone: {
       get () {
-      return this.signUp.phoneNumber
+      return this.phoneNumber
       },
       set (value) {
-        this.updateSignUpPhone(value)
+        this.$emit('update:phoneNumber', value)
       }
     },
-    password: {
+    passwordModel: {
       get () {
-      return this.signUp.password
+      return this.password
       },
       set (value) {
-        this.updateSignUpPassword(value)
+        this.$emit('update:password', value)
       }
     },
   },
   methods: {
     ...mapActions([
-      'checkNumber',
-      'sendOtpToClient'
-    ]),
-    ...mapMutations([
-      'updateSignUpPhone',
-      'updateSignUpPassword',
+      'signUp'
     ]),
     handleRegistration() {
       this.$refs.phone.validate()
@@ -91,14 +83,10 @@ export default {
       this.$refs.rePassword.validate()
       if (!this.$refs.phone.hasError && !this.$refs.password.hasError && !this.$refs.rePassword.hasError) {
         this.isLoading = true
-        this.checkNumber(this.phone).then((res) => {
+        this.signUp(this.phone).then((res) => {
           if(res.success) {
-            this.isLoading = true
-            this.sendOtpToClient(this.phone).then((res) => {
-              this.$emit('update:step', 2)
-            }).finally(() => this.loading = false)
+            this.$emit('update:step', 2)
           } else {
-            this.isLoading = false
             showNotification('negative', res.error.data[this.$i18n.locale])
           }
         }).finally(() => this.loading = false)

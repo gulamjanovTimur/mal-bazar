@@ -12,7 +12,6 @@
     margin-bottom: 40px;
   }
   &__description {
-    margin-top: 20px;
     margin-bottom: 20px;
   }
   &__actions {
@@ -22,7 +21,7 @@
 
 .create-uploader {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
   &__main-card {
     background-color: rgb(236, 236, 236);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -88,9 +87,8 @@
   }
 }
 .uploader-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 15px;
   &__item {
     cursor: pointer;
@@ -118,24 +116,28 @@
 .create-specifications {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
   &__field {
     width: calc(50% - 10px);
+    margin-bottom: 15px;
+    &:nth-child(2n) {
+      margin-left: 15px;
+    }
   }
+  
 }
 .create-price {
   display: flex;
-  gap: 20px;
   &__field {
     width: 100%;
   }
   &__toggle {
+    margin-left: 15px;
   }
 }
 .create-actions {
   display: flex;
-  gap: 20px;
   &__item {
+    margin-right: 20px;
   }
 }
 
@@ -149,6 +151,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    &__main-card {
+      margin-bottom: 20px;
+    }
     &__btn-file {
       opacity: 1;
     }
@@ -161,7 +166,7 @@
     }
   }
   .uploader-cards {
-    justify-content: flex-start;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     flex-wrap: nowrap;
     overflow-x: auto;
     width: 100%;
@@ -194,11 +199,15 @@
   .create-specifications {
     &__field {
       width: 100%;
-      column-gap: 10px;
+      &:nth-child(2n) {
+        margin-left: 0;
+      }
     }
   }
   .create-actions {
     justify-content: space-between;
-    gap: 10px;
+    &__item {
+      margin-right: 10px;
+    }
   }
 }

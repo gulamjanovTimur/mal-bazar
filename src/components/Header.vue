@@ -1,10 +1,10 @@
 <template>
   <div class="header">
     <div class="header-left">
-      <router-link to="/" class="header-right__logo header-logo">
+      <router-link to="/" class="header-left__logo header-logo">
         <img src="static/icons/logo.png" alt="logo">
       </router-link>
-      <div class="header-right__lang header-lang">
+      <div class="header-left__lang header-lang">
         <div @click="() => changeLang('ru')" :class="{'header-lang__item_active':selectedLang === 'ru'}" class="header-lang__item">RU</div>
         <div @click="() => changeLang('kg')" :class="{'header-lang__item_active':selectedLang === 'kg'}" class="header-lang__item">KG</div>
       </div>

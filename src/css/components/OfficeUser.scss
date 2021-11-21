@@ -12,7 +12,10 @@
 .office-user-info {
   display: flex;
   align-items: center;
-  gap: 15px;
+  &__avatar {
+    margin-right: 15px;
+    cursor: pointer;
+  }
 }
 .office-user-text {
   &__name {

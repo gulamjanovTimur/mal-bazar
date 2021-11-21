@@ -8,24 +8,27 @@
 .header-left {
   display: flex;
   align-items: center;
-  gap: 40px;
+  &__logo {
+    margin-right: 30px;
+  }
 }
 .header-right {
-  display: flex;
-  align-items: center;
-  gap: 40px;
+  // display: flex;
+  // align-items: center;
   &__mobile {
     display: none;
   }
 }
 .header-profile {
   display: flex;
-  gap: 10px;
   align-items: center;
   cursor: pointer;
   background-color: $primary;
   &:hover {
     background-color: $primary-hov;
+  }
+  &__avatar {
+    margin: 0 10px;
   }
   &__icon {
     transition: 0.3s;
@@ -63,7 +66,12 @@
 }
 .header-auth {
   display: flex;
-  gap: 15px;
+  &__item {
+    margin-right: 15px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 .header-mobile {
   display: flex;
@@ -89,10 +97,8 @@
 }
 @include tablet {
   .header-left {
-    gap: 20px;
   }
   .header-right {
-    gap: 20px;
   }
 }
 
@@ -101,6 +107,8 @@
     &__mobile {
       display: block;
     }
+  }
+  .header-left {
     &__lang {
       display: none;
     }

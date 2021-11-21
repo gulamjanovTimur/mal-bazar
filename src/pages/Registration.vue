@@ -1,8 +1,8 @@
 <template>
   <div class="registration">
     <div class="container">
-      <RegistrationForm v-if="step === 1" v-model:step="step" class="registration__form"/>
-      <ConfirmOtp class="registration__otp" v-else/>
+      <RegistrationForm v-model:phoneNumber="phoneNumber" v-model:password="password" v-if="step === 1" v-model:step="step" class="registration__form"/>
+      <ConfirmOtp :phoneNumber="phoneNumber" :password="password" class="registration__otp" v-else/>
     </div>
   </div>
 </template>
@@ -16,7 +16,9 @@ export default {
   components: { RegistrationForm, ConfirmOtp },
   data() {
     return {
-      step: 1
+      step: 1,
+      phoneNumber: '',
+      password: ''
     }
   },
   computed: {

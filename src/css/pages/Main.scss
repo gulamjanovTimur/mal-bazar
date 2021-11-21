@@ -11,15 +11,20 @@
 .region-filter {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  &__item {
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 .region-filter-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  gap: 5px;
   &__img {
+    margin-bottom: 5px;
     width: 100px;
     height: 60px;
     background-repeat: no-repeat;

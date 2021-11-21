@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="() => confirmOtp()" class="registration-form">
+  <form @submit.prevent="() => confirm()" class="registration-form">
     <div class="registration-form__title">Подтверждение</div>
     <q-input
       v-model="otp"
@@ -12,37 +12,30 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions } from 'vuex'
 import { showNotification } from 'src/utils'
 
 export default {
   name: 'ConfirmOtp',
+  props: ['phoneNumber', 'password'],
   data() {
     return {
       otp: '',
       isLoading: false
     }
   },
-  computed: {
-    ...mapState({
-      signUp: state => state.user.signUp
-    })
-  },
   methods: {
-    ...mapActions({
-      sendOtpToServer: 'sendOtpToServer',
-      register: 'signUp'
-    }),
-    confirmOtp() {
+    ...mapActions([
+      'confirmOtp'
+    ]),
+    confirm() {
       this.isLoading = true
-      this.sendOtpToServer({phoneNumber: this.signUp.phoneNumber, password: this.signUp.password, otp: this.otp}).then((res) => {
+      this.confirmOtp({phoneNumber: this.phoneNumber, password: this.password, otp: this.otp}).then((res) => {
         if(res.success) {
           this.isLoading = true
-          this.register({phoneNumber: this.signUp.phoneNumber, password: this.signUp.password}).then(() => {
             showNotification('positive', 'Регистрация прошла успешно') // TODO: translate
             this.$router.push({path: '/sign-in'}) //TODO: sign-in auto
-          }).finally(() => this.isLoading = false)
-        } else {
+        }else{
           showNotification('negative', res.error.data[this.$i18n.locale])
         }
       }).finally(() => this.isLoading = false)

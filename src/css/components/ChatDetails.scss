@@ -18,7 +18,9 @@
 }
 .chat-header-info {
   display: flex;
-  gap: 20px;
+  &__avatar {
+    margin-right: 20px;
+  }
   &__name {
     font-weight: bold;
     font-size: 19px;
@@ -134,8 +136,20 @@
   }
 }
 
-@include mob {
+@include tablet {
   .chat-header {
+    grid-template-columns: 1fr 1.5fr 0.5fr;
+  }
+}
+
+@include mob {
+  .chat {
+    margin: 0 -14px;
+  }
+  .chat-header {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
     grid-template-columns: 1fr;
     &__back {
       display: none;
@@ -143,8 +157,20 @@
   }
   .chat-header-info {
     justify-content: center;
+    &__avatar {
+      margin-right: 15px;
+    }
   }
   .chat-msgs {
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
     padding: 0 10px;
+  }
+  .chat-form {
+    padding: 10px;
+    &__input {
+      margin: 0 10px;
+    }
   }
 }

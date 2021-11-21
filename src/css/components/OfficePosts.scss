@@ -36,20 +36,28 @@
   }
 }
 .office-item {
+  &__name {
+    margin-bottom: 5px;
+  }
+  &__price {
+    margin-bottom: 5px;
+  }
   &__small {
     color: #595959;
     font-size: 13px;
+    margin-bottom: 5px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 .office-post-title {
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
 .office-post-views {
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
 
 @include mob {

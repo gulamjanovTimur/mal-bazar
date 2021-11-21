@@ -6,11 +6,13 @@
         Назад
       </div>
       <div class="chat-header__info chat-header-info">
-        <q-avatar class="header-profile__avatar" color="secondary">
+        <q-avatar class="chat-header-info__avatar" color="secondary">
           <img src="static/images/ishen-soset.jpg" alt="Фото профиля">
         </q-avatar>
-        <div><div class="chat-header-info__name">Алмазбеков Ишен</div>
-        <div class="chat-header-info__date">Был(а) в сети 16.10.2021</div></div>
+        <div>
+          <div class="chat-header-info__name">Алмазбеков Ишен</div>
+          <div class="chat-header-info__date">Был(а) в сети 16.10.2021</div>
+        </div>
       </div>
     </div>
     <q-scroll-area
@@ -67,6 +69,7 @@
         :disabled="inputText || fileUpload.length > 0 ? false : true"
         class="chat-form__send-btn"
         type="submit"
+        @click.prevent="(e) => addMsg(e)"
       >
         <q-icon color="white" name="send"/>
       </button>
