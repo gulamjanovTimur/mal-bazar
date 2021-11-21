@@ -12,22 +12,25 @@ const responseHandler = async res => {
   return response
 }
 
+const getSessionKey = () => {
+  const sessionKey = localStorage.getItem('sessionKey')
+  return sessionKey ? sessionKey : ''
+}
 
-export const headers = {
+export const headers = (sessionKey = "") => ({
   "content-type": "application/json",
   "ref-id": "ref-id",
   "device-type": "web",
   "user-agent-c": "chrome",
-  // "session-key": sessionKey,
+  "token": sessionKey,
   "connection": "keep-alive"
-
-}
+})
 
 export const http = {
   get(path, body) {
     return fetch(api + path, {
       method: "GET",
-      headers: headers,
+      headers: headers(getSessionKey()),
       body: JSON.stringify(body)
     })
       .then(responseHandler)
@@ -36,7 +39,7 @@ export const http = {
   post(path, body) {
     return fetch(api + path, {
       method: "POST",
-      headers: headers,
+      headers: headers(getSessionKey()),
       body: JSON.stringify(body)
     })
       .then(responseHandler)

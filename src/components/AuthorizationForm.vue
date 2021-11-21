@@ -47,7 +47,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'signIn'
+      'signIn',
+      'getUserInfo'
     ]),
     ...mapMutations(['updateAuth']),
     authorization() {
@@ -55,14 +56,25 @@ export default {
       this.$refs.password.validate()
       if (!this.$refs.phone.hasError && !this.$refs.password.hasError) {
         this.isLoading = true
-        this.signIn({phoneNumber: this.phone, password: this.password}).then((res) => {
-          if(res.success) {
-            showNotification('positive', 'Авторизация прошла успешно') // TODO: translate
-            localStorage.setItem('sessionKey', res.data.sessionKey)
-            this.updateAuth({status: true, sessionKey: res.data.sessionKey})
-            this.$router.push('/')
+        this.signIn({phoneNumber: this.phone, password: this.password}).then((resReg) => {
+          if(resReg.success) {
+            localStorage.setItem('sessionKey', resReg.data.sessionKey)
+            this.getUserInfo().then((resInfo) => {
+              if(resInfo.success) {
+                showNotification('positive', 'Авторизация прошла успешно') // TODO: translate
+                this.$router.push('/')
+                this.updateAuth({
+                  status: true,
+                  phoneNumber: resInfo.data.phoneNumber,
+                  username: resInfo.data.username,
+                  sessionKey: resReg.data.sessionKey
+                })
+              }else{
+                showNotification('negative', resInfo.error.data[this.$i18n.locale])
+              }
+            })
           } else {
-            showNotification('negative', res.error.data[this.$i18n.locale])
+            showNotification('negative', resReg.error.data[this.$i18n.locale])
           }
         }).finally(() => this.isLoading = false)
       }

@@ -12,8 +12,13 @@ const confirmOtp = (data) => {
   return http.post('login/secondStep', data)
 }
 
+const getUserInfo = () => {
+  return http.get('cabinet/userInfo')
+}
+
 export default {
   signUp,
   signIn,
   confirmOtp,
+  getUserInfo
 }

@@ -35,8 +35,8 @@
                 <!-- <CustomBtn secondary class="header-right__create" :name="$t('CREATE_ARTICLE')"/> -->
               </q-item-section>
             </q-item>
-            <q-item class="header-profile-list__item" clickable v-close-popup>
-              <q-item-section @click="() => logOut()">Выход</q-item-section>
+            <q-item @click="() => logOut()" class="header-profile-list__item" clickable v-close-popup>
+              <q-item-section>Выход</q-item-section>
             </q-item>
           </q-list>
         </q-menu>

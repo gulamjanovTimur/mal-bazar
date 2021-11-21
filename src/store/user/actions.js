@@ -13,3 +13,7 @@ export const signUp = ({ commit }, data) => {
 export const confirmOtp = ({ commit }, data) => {
   return user.confirmOtp(data)
 }
+
+export const getUserInfo = ({ commit }) => {
+  return user.getUserInfo()
+}

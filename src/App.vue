@@ -3,7 +3,7 @@
 </template>
 <script>
 import { defineComponent } from 'vue';
-import { mapMutations, mapState } from 'vuex';
+import { mapActions, mapMutations, mapState } from 'vuex';
 
 export default defineComponent({
   name: 'App',
@@ -13,13 +13,21 @@ export default defineComponent({
     })
   },
   methods: {
+    ...mapActions(['getUserInfo']),
     ...mapMutations(['updateAuth'])
   },
   mounted() {
     if(localStorage.getItem('sessionKey')) {
-      this.updateAuth({
-        status: true,
-        sessionKey: localStorage.getItem('sessionKey')
+      console.log(localStorage.getItem('sessionKey'))
+      this.getUserInfo().then((res) => {
+        if(res.success) {
+          this.updateAuth({
+            status: true,
+            phoneNumber: res.data.phoneNumber,
+            username: res.data.username,
+            sessionKey: localStorage.getItem('sessionKey')
+          })
+        }
       })
     }
   }
