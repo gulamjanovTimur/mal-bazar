@@ -17,3 +17,7 @@ export const confirmOtp = ({ commit }, data) => {
 export const getUserInfo = ({ commit }) => {
   return user.getUserInfo()
 }
+
+export const changeUserName = ({ commit }, data) => {
+  return user.changeUserName(data)
+}

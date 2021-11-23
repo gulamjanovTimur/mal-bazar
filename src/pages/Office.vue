@@ -42,10 +42,5 @@ export default {
       auth: state => state.user.auth
     })
   },
-  mounted() {
-    if(!this.auth.status) {
-      this.$router.push('/')
-    }
-  }
 }
 </script>

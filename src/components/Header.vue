@@ -16,7 +16,7 @@
       </div>
       <q-icon v-if="!auth.status" class="header-right__mobile" @click="() => modalOpen = true" size="38px" name="menu" />
       <div class="header-right__profile header-profile" v-if="auth.status">
-        <span class="header-profile__name">Ишен</span>
+        <span class="header-profile__name">{{auth.username || auth.phoneNumber}}</span>
         <q-avatar class="header-profile__avatar" color="secondary">
           <img src="static/images/ishen-soset.jpg" alt="Фото профиля">
         </q-avatar>

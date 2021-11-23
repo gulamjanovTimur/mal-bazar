@@ -18,7 +18,6 @@ export default defineComponent({
   },
   mounted() {
     if(localStorage.getItem('sessionKey')) {
-      console.log(localStorage.getItem('sessionKey'))
       this.getUserInfo().then((res) => {
         if(res.success) {
           this.updateAuth({

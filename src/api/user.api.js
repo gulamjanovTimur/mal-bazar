@@ -16,9 +16,14 @@ const getUserInfo = () => {
   return http.get('cabinet/userInfo')
 }
 
+const changeUserName = (username) => {
+  return http.post('cabinet/updateName', { username })
+}
+
 export default {
   signUp,
   signIn,
   confirmOtp,
-  getUserInfo
+  getUserInfo,
+  changeUserName
 }
