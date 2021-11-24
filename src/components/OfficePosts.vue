@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { showNotification } from 'src/utils'
 import { mapActions } from 'vuex'
 
 export default {
@@ -51,6 +52,8 @@ export default {
     this.getOfficeProducts().then((res) => {
       if(res.success) {
         this.data = res.data
+      } else {
+        showNotification('negative', res.error.data[this.$i18n.locale])
       }
     }).finally(() => {
       this.isLoading = false

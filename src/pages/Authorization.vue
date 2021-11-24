@@ -10,7 +10,7 @@ import AuthorizationForm from 'components/AuthorizationForm'
 import { mapState } from 'vuex'
 
 export default {
-  name: 'Registration',
+  name: 'Authorization',
   components: { AuthorizationForm },
   computed: {
     ...mapState({
