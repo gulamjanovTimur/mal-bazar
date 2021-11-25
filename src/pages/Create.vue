@@ -1,11 +1,11 @@
 <template>
   <form @submit.prevent="() => create()" class="create">
-    <h1 class="create__title page__title">Создать объявление</h1>
+    <h1 class="create__title page__title">{{$t('CREATE_ANNOUNCEMENT')}}</h1>
     <div class="create__uploader create-uploader">
       <label :for="fileList[0] === undefined ? 'file' : ''" class="create-uploader__main-card" :style="fileList.length > 0 ? `background-image:url(${convertToImgPath(fileList[0])})` : ''">
         <div class="create-uploader__text create-uploader__text_main" v-if="fileList[0] === undefined">
           <q-icon size="xl" color="primary" name="add_a_photo"/>
-          Загрузить фото...
+          {{$t('UPLOAD_A_PHOTO')}}
         </div>
         <q-icon v-if="fileList[0] !== undefined" @click="() => deleteFile(0)" size="md" class="create-uploader__close" name="close"/>
       </label>
@@ -18,7 +18,7 @@
           <q-icon v-if="fileList[1] !== undefined" @click="() => deleteFile(1)" class="create-uploader__close" name="close"/>
             <div class="create-uploader__text" v-if="fileList[1] === undefined">
               <q-icon size="md" color="primary" name="add_a_photo"/>
-              Загрузить фото...
+              {{$t('UPLOAD_A_PHOTO')}}
             </div>
           <div v-if="fileList[1] !== undefined" class="create-uploader__make-main">
             <q-chip clickable @click="() => makeMain(1)" color="secondary" text-color="white">Сделать главной</q-chip>
@@ -32,7 +32,7 @@
           <q-icon v-if="fileList[2] !== undefined" @click="() => deleteFile(2)" class="create-uploader__close" name="close"/>
             <div class="create-uploader__text" v-if="fileList[2] === undefined">
               <q-icon size="md" color="primary" name="add_a_photo"/>
-              Загрузить фото...
+              {{$t('UPLOAD_A_PHOTO')}}
             </div>
           <div v-if="fileList[2] !== undefined" class="create-uploader__make-main">
             <q-chip clickable @click="() => makeMain(2)" color="secondary" text-color="white">Сделать главной</q-chip>
@@ -46,7 +46,7 @@
           <q-icon v-if="fileList[3] !== undefined" @click="() => deleteFile(3)" class="create-uploader__close" name="close"/>
             <div class="create-uploader__text" v-if="fileList[3] === undefined">
               <q-icon size="md" color="primary" name="add_a_photo"/>
-              Загрузить фото...
+              {{$t('UPLOAD_A_PHOTO')}}
             </div>
           <div v-if="fileList[3] !== undefined" class="create-uploader__make-main">
             <q-chip clickable @click="() => makeMain(3)" color="secondary" text-color="white">Сделать главной</q-chip>
@@ -60,7 +60,7 @@
           <q-icon v-if="fileList[4] !== undefined" @click="() => deleteFile(4)" class="create-uploader__close" name="close"/>
             <div class="create-uploader__text" v-if="fileList[4] === undefined">
               <q-icon size="md" color="primary" name="add_a_photo"/>
-              Загрузить фото...
+              {{$t('UPLOAD_A_PHOTO')}}
             </div>
           <div v-if="fileList[4] !== undefined" class="create-uploader__make-main">
             <q-chip clickable @click="() => makeMain(4)" color="secondary" text-color="white">Сделать главной</q-chip>
@@ -74,7 +74,7 @@
           <q-icon v-if="fileList[5] !== undefined" @click="() => deleteFile(5)" class="create-uploader__close" name="close"/>
             <div class="create-uploader__text" v-if="fileList[5] === undefined">
               <q-icon size="md" color="primary" name="add_a_photo"/>
-              Загрузить фото...
+              {{$t('UPLOAD_A_PHOTO')}}
             </div>
           <div v-if="fileList[5] !== undefined" class="create-uploader__make-main">
             <q-chip clickable @click="() => makeMain(5)" color="secondary" text-color="white">Сделать главной</q-chip>
@@ -88,7 +88,7 @@
           <q-icon v-if="fileList[6] !== undefined" @click="() => deleteFile(6)" class="create-uploader__close" name="close"/>
             <div class="create-uploader__text" v-if="fileList[6] === undefined">
               <q-icon size="md" color="primary" name="add_a_photo"/>
-              Загрузить фото...
+              {{$t('UPLOAD_A_PHOTO')}}
             </div>
           <div v-if="fileList[6] !== undefined" class="create-uploader__make-main">
             <q-chip clickable @click="() => makeMain(6)" color="secondary" text-color="white">Сделать главной</q-chip>
@@ -109,14 +109,14 @@
           <q-select 
             v-if="field.type === 'select'" 
             outlined 
-            :label="field.label" 
+            :label="$t(field.label)" 
             v-model="field.model" 
             :options="field.selectOptions" class="create-specifications__field"
           />
           <q-input 
             v-if="field.type === 'input'" 
             outlined 
-            :label="field.label" 
+            :label="$t(field.label)" 
             v-model="field.model" 
             class="create-specifications__field"
           />
@@ -128,24 +128,24 @@
       bg-color="white"
       outlined
       class="create__description"
-      label="Введите описание"
+      :label="$t('ENTER_A_DESCRIPTION')"
     />
     <div class="create-specifications">
-      <q-input outlined label="Номер телефона" class="create-specifications__field"/>
+      <q-input outlined :label="$t('NUMBER_PHONE')" class="create-specifications__field"/>
       <div class="create-specifications__field create-price">
-        <q-input outlined label="Цена" class="create-price__field"/>
+        <q-input outlined :label="$t('PRICE')" class="create-price__field"/>
         <q-btn-toggle v-model="ccy" :options="ccyOptions" class="create-price__toggle"/>
       </div>
     </div>
     <div class="create__actions create-actions">
       <custom-btn class="create-actions__item" :name="$t('CREATE_ARTICLE')"/>
-      <custom-btn @click="() => $router.push('/')" class="create-actions__item" type secondary name="Отмена"/>
+      <!-- <custom-btn @click="() => $router.push('/')" class="create-actions__item" type secondary :name="$t('CANCEL')"/> -->
     </div>
   </form>
 </template>
 
 <script>
-import { convertToImgPath, showNotification } from 'src/utils'
+import { convertToImgPath } from 'src/utils'
 
 export default {
   name: 'Create',
@@ -154,7 +154,7 @@ export default {
       description: '',
       fieldsList: {
         cat: {
-          label: 'Категория',
+          label: 'CATEGORY',
           type: 'select',
           selectOptions: [
             'Коровы',
@@ -165,7 +165,7 @@ export default {
           model: ''
         },
         region: {
-          label: 'Область',
+          label: 'REGION',
           type: 'select',
           selectOptions: [
             'Коровы',
@@ -176,7 +176,7 @@ export default {
           model: ''
         },
         city: {
-          label: 'Город',
+          label: 'CITY',
           type: 'select',
           selectOptions: [
             'Коровы',
@@ -187,7 +187,7 @@ export default {
           model: ''
         },
         quantity: {
-          label: 'Количество',
+          label: 'AMOUNT',
           type: 'input',
           model: ''
         },

@@ -3,9 +3,12 @@
     <div class="office-user__info office-user-info">
       <label for="file" class="office-user-info__avatar" size="80px" color="secondary">
         <img src="static/images/ishen-soset.jpg" alt="Фото профиля">
+        <!-- <div class="office-user-avatar__change-wrapper">
+          Изменить фото
+        </div> -->
       </label>
       <div class="office-user-info__text office-user-text">
-        <div class="office-user-text__name">Алмазбеков Ишен</div>
+        <div class="office-user-text__name">{{auth.username || auth.phoneNumber}}</div>
         <div class="office-user-text__help">Нажмите на фото чтобы изменить его</div>
       </div>
     </div>

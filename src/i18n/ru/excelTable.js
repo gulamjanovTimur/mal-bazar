@@ -14,5 +14,16 @@ export default {
  DOWNLOAD_APP: "Бесплатное приложение для твоего телефона",
  ENTER_PHONE_NUMBER: "Введите номер телефона",
  ENTER_PASSWORD: "Введите пароль",
- REPEAT_PASSWORD: "Повторите пароль"
+ REPEAT_PASSWORD: "Повторите пароль",
+ PRICE: "Цена",
+ AMOUNT: "Количество",
+ REGION: "Область",
+ CITY: "Город",
+ WRITE_TO: "Написать",
+ CREATE_ANNOUNCEMENT: "Создать объявление",
+ UPLOAD_A_PHOTO: "Загрузить фото",
+ CATEGORY: "Категория",
+ ENTER_A_DESCRIPTION: "Введите описание",
+ NUMBER_PHONE: "Номер телефона ",
+ CANCEL: "Отмена"
 }

@@ -205,9 +205,14 @@
     }
   }
   .create-actions {
+    flex-direction: column;
     justify-content: space-between;
     &__item {
-      margin-right: 10px;
+      margin-bottom: 10px;
+      margin-right: 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }

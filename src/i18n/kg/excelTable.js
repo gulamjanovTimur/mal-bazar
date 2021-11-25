@@ -14,5 +14,16 @@ export default {
  DOWNLOAD_APP: "Смартфонуңуз үчүн бекер колдонмо",
  ENTER_PHONE_NUMBER: "Телефон номеринизди жазыныз",
  ENTER_PASSWORD: "Сырсөздү жазыныз",
- REPEAT_PASSWORD: "Сырсөздү кайталоо"
+ REPEAT_PASSWORD: "Сырсөздү кайталоо",
+ PRICE: "Баасы",
+ AMOUNT: "Саны",
+ REGION: "Аймак",
+ CITY: "Шаар",
+ WRITE_TO: "Жазуу",
+ CREATE_ANNOUNCEMENT: "Жарнама түзүү",
+ UPLOAD_A_PHOTO: "Сүрөт жүктөө",
+ CATEGORY: "Категория",
+ ENTER_A_DESCRIPTION: "Сүрөттөмө киргизиңиз",
+ NUMBER_PHONE: "Телефон номуру",
+ CANCEL: "Жокко чыгаруу"
 }
