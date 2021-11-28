@@ -1,7 +1,7 @@
-import ruRU from './ru-ru'
-import kgKG from './kg-kg'
+import ru from './ru'
+import kg from './kg'
 
 export default {
-  ru: ruRU,
-  kg: kgKG
+  ru,
+  kg
 }
