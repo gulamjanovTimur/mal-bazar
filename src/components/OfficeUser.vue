@@ -5,7 +5,7 @@
         <img src="static/images/ishen-soset.jpg" alt="Фото профиля">
       </label>
       <div class="office-user-info__text office-user-text">
-        <div class="office-user-text__name">Алмазбеков Ишен</div>
+        <div class="office-user-text__name">{{auth.username || auth.phoneNumber}}</div>
         <div class="office-user-text__help">Нажмите на фото чтобы изменить его</div>
       </div>
     </div>
@@ -17,7 +17,7 @@
       type="file"
     >
     <div class="office-user__fields office-user-fields">
-      <q-input v-model="name" label="Имя" filled class="office-user-fields__item" />
+      <q-input maxlength="20" v-model="name" label="Имя" filled class="office-user-fields__item" />
     </div>
     <CustomBtn :isLoading="isLoading" class="office-user__btn" name="Сохранить"/>
   </form>

@@ -1,6 +1,10 @@
 .office-posts {
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 5px;
+  &__no-data {
+    padding: 20px;
+    text-align: center;
+  }
 }
 .office-posts-filters {
   display: flex;

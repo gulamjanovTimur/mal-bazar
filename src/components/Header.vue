@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" :class="{'header-padding': !auth.status}">
     <div class="header-left">
       <router-link to="/" class="header-left__logo header-logo">
         <img src="static/icons/logo.png" alt="logo">

@@ -128,12 +128,12 @@
       bg-color="white"
       outlined
       class="create__description"
-      label="Введите описание"
+      label="Описание"
     />
     <div class="create-specifications">
-      <q-input outlined label="Номер телефона" class="create-specifications__field"/>
+      <q-input v-model="phone" outlined label="Номер телефона" class="create-specifications__field"/>
       <div class="create-specifications__field create-price">
-        <q-input outlined label="Цена" class="create-price__field"/>
+        <q-input v-model="price" outlined label="Цена" class="create-price__field"/>
         <q-btn-toggle v-model="ccy" :options="ccyOptions" class="create-price__toggle"/>
       </div>
     </div>
@@ -146,6 +146,7 @@
 
 <script>
 import { convertToImgPath, showNotification } from 'src/utils'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Create',
@@ -153,14 +154,31 @@ export default {
     return {
       description: '',
       fieldsList: {
+        title: {
+          label: 'Название',
+          type: 'input',
+          model: ''
+        },
         cat: {
           label: 'Категория',
           type: 'select',
           selectOptions: [
-            'Коровы',
-            'Овцы',
-            'Собаки',
-            'Кошки'
+            {
+              label: 'Коровы',
+              value: 1
+            },
+            {
+              label: 'Овцы',
+              value: 2
+            },
+            {
+              label: 'Собаки',
+              value: 3
+            },
+            {
+              label: 'Кошки',
+              value: 4
+            }
           ],
           model: ''
         },
@@ -168,10 +186,22 @@ export default {
           label: 'Область',
           type: 'select',
           selectOptions: [
-            'Коровы',
-            'Овцы',
-            'Собаки',
-            'Кошки'
+            {
+              label: 'Коровы',
+              value: 1
+            },
+            {
+              label: 'Овцы',
+              value: 2
+            },
+            {
+              label: 'Собаки',
+              value: 3
+            },
+            {
+              label: 'Кошки',
+              value: 4
+            }
           ],
           model: ''
         },
@@ -179,15 +209,32 @@ export default {
           label: 'Город',
           type: 'select',
           selectOptions: [
-            'Коровы',
-            'Овцы',
-            'Собаки',
-            'Кошки'
+            {
+              label: 'Коровы',
+              value: 1
+            },
+            {
+              label: 'Овцы',
+              value: 2
+            },
+            {
+              label: 'Собаки',
+              value: 3
+            },
+            {
+              label: 'Кошки',
+              value: 4
+            }
           ],
           model: ''
         },
         quantity: {
           label: 'Количество',
+          type: 'input',
+          model: ''
+        },
+        age: {
+          label: 'Возраст',
           type: 'input',
           model: ''
         },
@@ -197,13 +244,34 @@ export default {
         {label: 'USD', value: 'USD'},
       ],
       ccy: 'KGS',
-      fileList: []
+      fileList: [],
+      price: '',
+      phone: ''
     }
   },
   methods: {
+    ...mapActions(['createNewProduct']),
     convertToImgPath,
     create() {
-      console.log('CREATE')
+      this.createNewProduct({
+        title: this.fieldsList.title.model,
+        description: this.description,
+        price: this.price,
+        priceCurrency: this.ccy,
+        count: this.fieldsList.quantity.model,
+        age: this.fieldsList.age.model,
+        categoryId: this.fieldsList.cat.model.value,
+        locationId: this.fieldsList.city.model.value,
+        images: this.fileList,
+        phoneNumber: this.phone
+      }).then((res) => {
+        if(res.success) {
+          this.$router.push('/'),
+          showNotification('positive', 'Объявление успешно создано') //TODO: localization
+        } else {
+          showNotification('negative', res.error.data[this.$i18n.locale])
+        }
+      })
     },
     changeFile(e) {
       let file = e.target.files[0]
@@ -214,9 +282,8 @@ export default {
         return (reader.onload = () => {
           const base64 = reader.result.split("base64,")[1]
           this.fileList.push({
-            data: base64,
+            image: base64,
             extension: "." + ext[ext.length - 1],
-            name: file.name,
           })
           e.target.value = ''
         })
