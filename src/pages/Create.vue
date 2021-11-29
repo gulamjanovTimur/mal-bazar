@@ -131,11 +131,6 @@
       :label="$t('ENTER_A_DESCRIPTION')"
     />
     <div class="create-specifications">
-      <q-input v-model="phone" outlined label="Номер телефона" class="create-specifications__field"/>
-      <div class="create-specifications__field create-price">
-      <q-input v-model="price" outlined label="Цена" class="create-price__field"/>
-    />
-    <div class="create-specifications">
       <q-input v-model="phone" outlined :label="$t('NUMBER_PHONE')" class="create-specifications__field"/>
       <div class="create-specifications__field create-price">
         <q-input v-model="price" outlined :label="$t('PRICE')" class="create-price__field"/>
