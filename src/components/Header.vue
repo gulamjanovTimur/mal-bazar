@@ -29,8 +29,8 @@
               <q-item-section>Сообщения</q-item-section>
             </q-item>
             <q-separator />
-            <q-item class="header-profile-list__item" clickable v-close-popup>
-              <q-item-section class="header-right__create" @click="() => $router.push('/create')">
+            <q-item @click="$router.push('/create')" class="header-profile-list__item" clickable v-close-popup>
+              <q-item-section class="header-right__create" >
                 {{$t('CREATE_ARTICLE')}}
                 <!-- <CustomBtn secondary class="header-right__create" :name="$t('CREATE_ARTICLE')"/> -->
               </q-item-section>
