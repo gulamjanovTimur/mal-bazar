@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     ...mapActions(['getOfficeProducts']),
-    convertToImgPath
+    convertToImgPath,
   },
   mounted(){
     this.isLoading = true

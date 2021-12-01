@@ -28,6 +28,16 @@ export const showNotification = (type = "positive", msg = "") => {
 };
 export const convertToImgPath = (icon) => {
   return icon
-    ? `data:image/${icon.extension[0] === '.' ? icon.extension.substring(1) : icon.extension};base64,${icon.image}`
+    ? `data:image/${icon.extension[0] === '.' ? icon.extension.substring(1) : icon.extension};base64,${byteArrayToBase64(icon.image)}`
     : ''
+}
+
+export const byteArrayToBase64 = (buffer) => {
+  let binary = '';
+  let bytes = new Uint8Array( buffer );
+  let len = bytes.byteLength;
+  for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode( bytes[ i ] );
+  }
+  return window.btoa( binary );
 }
